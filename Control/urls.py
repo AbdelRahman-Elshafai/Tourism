@@ -18,10 +18,10 @@ from django.contrib import admin
 
 from django.contrib.auth import urls
 
-from Admin import views
+from Control import views
 
 urlpatterns = [
-    url(r'^admin$', views.printAdmin),
+    url(r'^panel/$', views.printAdmin),
 
 
 ]
