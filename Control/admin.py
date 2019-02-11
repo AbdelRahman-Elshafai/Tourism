@@ -4,3 +4,17 @@ from django.contrib import admin
 
 
 
+from .models import Admin
+
+
+class CustomAdmin(admin.ModelAdmin):
+
+    fieldsets = (
+        ['Admin' , {'fields': ['admin_username' , 'admin_password']}],
+
+
+    )
+
+
+
+admin.site.register(Admin , CustomAdmin)
