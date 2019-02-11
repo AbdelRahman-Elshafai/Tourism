@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43909216-5556-409c-bd30-7b1202f5b4d1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Control/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tourism/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tourism/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tourism/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tourism/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control/admin.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,14 +35,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Control/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+            <state relative-caret-position="120">
+              <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
               <folding>
                 <element signature="e#637#679#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Control/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Control/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -98,6 +110,8 @@
         <option value="$PROJECT_DIR$/Admin/urls.py" />
         <option value="$PROJECT_DIR$/Tourism/urls.py" />
         <option value="$PROJECT_DIR$/Control/urls.py" />
+        <option value="$PROJECT_DIR$/Control/forms.py" />
+        <option value="$PROJECT_DIR$/Control/admin.py" />
       </list>
     </option>
   </component>
@@ -205,9 +219,6 @@
     <entry file="file://$PROJECT_DIR$/Control/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Control/admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tourism/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
@@ -234,11 +245,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Control/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        <state relative-caret-position="120">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
           <folding>
             <element signature="e#637#679#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Control/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
