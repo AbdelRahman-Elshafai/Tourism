@@ -19,3 +19,12 @@ class Car_Rental (models.Model):
 
     def __str__(self):
         return self.rental_id
+
+class Car_Reservation(models.Model):
+
+    reservation_id = models.CharField(max_length = 15)
+    rental_id = models.ForeignKey(Car_Rental)
+    user_id = models.Foreignkey(User)
+
+    def __str__(self):
+        return self.order_number
