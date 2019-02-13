@@ -18,10 +18,10 @@ from django.contrib import admin
 
 from django.contrib.auth import urls
 
-from LandingPage import views
+from Countries import views
 
 urlpatterns = [
-    url(r'^home/$', views.printHome),
+    url(r'^home/$', views.displayHome),
 
 
 ]
