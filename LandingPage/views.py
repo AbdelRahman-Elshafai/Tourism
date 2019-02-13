@@ -9,4 +9,4 @@ from django.http import HttpResponse , HttpResponseRedirect
 
 def printHome(request):
 
-    return HttpResponse("Hello landing Page")
+    return render(request , 'Home.html')

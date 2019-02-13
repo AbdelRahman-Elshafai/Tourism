@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'Car_Rental',
     'Profile',
     'Control',
     'Countries',
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'Tourism.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR , 'LandingPage/template')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
