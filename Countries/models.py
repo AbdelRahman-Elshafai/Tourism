@@ -10,7 +10,7 @@ class Countries(models.Model):
     longitude=models.FloatField()
     rate=models.IntegerField()
     def __str__(self):
-        return self.country_ID
+        return self.country_name
 
 
 class Cities(models.Model):

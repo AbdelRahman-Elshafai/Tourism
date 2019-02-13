@@ -18,15 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-<<<<<<< HEAD
     url(r'^Control/', include('Control.urls')),
     url(r'^LandingPage/', include('LandingPage.urls')),
-
-||||||| merged common ancestors
-    url(r'^Control/', include('Control.urls'))
-=======
-    url(r'^Control/', include('Control.urls')),
     url(r'^Profile/', include('Profile.urls')),
-
->>>>>>> 3da1828b54d6effefd078a1bb8889b8e085ebafa
 ]
