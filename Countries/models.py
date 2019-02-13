@@ -8,6 +8,7 @@ class Countries(models.Model):
     local_name=models.CharField(max_length=3)
     latitude=models.FloatField()
     longitude=models.FloatField()
+    rate=models.IntegerField()
     def __str__(self):
         return self.country_ID
 
@@ -20,15 +21,18 @@ class Cities(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
     description=models.TextField()
+    def __str__(self):
+        return self.city_ID
 
-class locations(models.Model):
+class Locations(models.Model):
     location_ID = models.AutoField(primary_key=True)
     location_name = models.CharField(max_length=50)
     city_ID = models.ForeignKey(Cities)
     latitude = models.FloatField()
     longitude = models.FloatField()
     description = models.TextField()
-
+    def __str__(self):
+        return self.location_ID
 
 
 class Experience(models.Model):
@@ -37,6 +41,8 @@ class Experience(models.Model):
     city_ID = models.ForeignKey(Cities)
     date=models.DateTimeField()
     description = models.TextField()
+    def __str__(self):
+        return self.exper_ID
 
 
 class Comments(models.Model):
@@ -45,3 +51,5 @@ class Comments(models.Model):
     exper_ID = models.ForeignKey(Experience)
     date = models.DateTimeField()
     description = models.TextField()
+    def __str__(self):
+        return self.comment_ID
