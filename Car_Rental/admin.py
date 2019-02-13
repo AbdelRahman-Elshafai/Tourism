@@ -8,7 +8,7 @@ class CustomResevation(admin.ModelAdmin):
 
 class CustomRental(admin.ModelAdmin):
     fieldsets = (
-        ['Car_Rental', {'fields': ['Car_Rental_id', 'Car_Rental_Name']}],
+        ['Car_Rental', {'fields': ['Car_Rental_id', 'Car_Rental_Name', 'location_ID']}],
     )
 
 
