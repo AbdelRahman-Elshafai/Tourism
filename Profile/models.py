@@ -12,8 +12,8 @@ class User(models.Model):
     user_name   = models.CharField(max_length=200)
     first_name  = models.CharField(max_length=200)
     last_name   = models.CharField(max_length=200)
-    user_passwd = models.CharField(max_length=200)
-    user_email  = models.CharField(max_length=200)
+    user_password = models.CharField(max_length=200)
+    user_email  = models.EmailField(max_length=200)
     blk_flg = models.BooleanField(default= False)
 
     def __int__(self):
@@ -24,7 +24,7 @@ class User(models.Model):
         return self.user_name
         return self.first_name
         return self.last_name
-        return self.user_passwd
+        return self.user_password
         return self.user_email
 
     def __bool__(self):
