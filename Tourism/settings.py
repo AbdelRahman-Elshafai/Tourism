@@ -82,11 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Tourism',
         'USER': 'root',
-<<<<<<< HEAD
         'PASSWORD': 'SiliconCore',
-=======
-        'PASSWORD': 'esraa1234!',
->>>>>>> 0d5e2ec2255464912a3886590d73a5541993b494
         'HOST': 'localhost',
         'PORT': '3306'
     }
