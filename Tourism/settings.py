@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'Car_Rental',
     'Profile',
     'Control',
     'Countries',
@@ -81,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Tourism',
         'USER': 'root',
-        'PASSWORD': 'esraa1234!',
+        'PASSWORD': 'SiliconCore',
         'HOST': 'localhost',
         'PORT': '3306'
     }
