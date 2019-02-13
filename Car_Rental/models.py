@@ -7,7 +7,7 @@
 from django.db import models
 
 from Profile.models import User
-from Countries.models import locations
+from Countries.models import Locations
 
 # Create your models here.
 #class representing table for car rentals services
@@ -17,7 +17,7 @@ class Car_Rental (models.Model):
     # setting fields of the table
     car_rental_id = models.CharField(max_length=15)
     car_rental_name = models.CharField(max_length=45)
-    location_ID = models.ForeignKey(locations)
+    location_ID = models.ForeignKey(Locations)
 
     def __str__(self):
         return self.rental_id
