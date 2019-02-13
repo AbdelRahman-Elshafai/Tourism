@@ -58,8 +58,9 @@
           Destinations
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Country 1</a>
-          <a class="dropdown-item" href="#">Country 2</a>
+          {% for c in all_countries %}
+            <a class="dropdown-item" href="{{c.country_name}}">{{c.country_name}}</a>
+          {% endfor %}
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">See All Countries</a>
         </div>
