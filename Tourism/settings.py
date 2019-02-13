@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'Profile',
     'Control',
     'Countries',
+    'LandingPage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,8 +81,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Tourism',
-        'USER': 'root',
-        'PASSWORD': 'esraa1234!',
+        'USER': 'phpmyadmin',
+        'PASSWORD': 'Os@12345',
         'HOST': 'localhost',
         'PORT': '3306'
     }
