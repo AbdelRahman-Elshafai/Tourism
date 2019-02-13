@@ -8,8 +8,8 @@ class customCountries(admin.ModelAdmin):
     list_display = ('country_ID','country_name','local_name','latitude','longitude','rate')
 
 class customCities(admin.ModelAdmin):
-    fieldsets = (['Cities_info', {'fields': ['city_ID', 'city_name', 'local_name', 'country_ID', 'latitude','longitude','description']}])
-    list_display = ('city_ID', 'city_name', 'local_name', 'country_ID', 'latitude','longitude','description')
+    fieldsets = (['Cities_info', {'fields': ['city_ID', 'city_name', 'local_name', 'country_ID', 'latitude','longitude','description' , 'rate']}])
+    list_display = ('city_ID', 'city_name', 'local_name', 'country_ID', 'latitude','longitude','description' , 'rate')
 
 
 
