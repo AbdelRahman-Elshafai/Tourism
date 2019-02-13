@@ -16,5 +16,5 @@ Including another URLconf
 from django.conf.urls import url
 from Profile import views
 urlpatterns = [
-        url(r'^home/register$', views.addUser),
+        url(r'^home/register$', views.addUser),  ### visitor moved from home to register
 ]

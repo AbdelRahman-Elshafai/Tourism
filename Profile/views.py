@@ -11,6 +11,6 @@ def addUser(request):
 		form = RegisterationForm(request.POST)
 		if form.is_valid():
 			form.save()
-			#return HttpResponseRedirect('')  ........... You should direct the user to his profile here after registeration
+			##return HttpResponseRedirect('Profile/home') Redirect to the Home Page
 	return render(request, 'SignUp.html', {'form':form})
 
