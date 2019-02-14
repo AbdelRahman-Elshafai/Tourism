@@ -5,24 +5,25 @@ from Profile.models import User
 class Countries(models.Model):
     country_ID=models.AutoField(primary_key=True)
     country_name=models.CharField(max_length=50)
-    local_name=models.CharField(max_length=3)
+    local_name=models.CharField(max_length=3 )
     latitude=models.FloatField()
     longitude=models.FloatField()
     rate=models.IntegerField()
     def __str__(self):
-        return self.country_ID
+        return self.country_name
 
 
 class Cities(models.Model):
     city_ID = models.AutoField(primary_key=True)
     city_name = models.CharField(max_length=50)
-    local_name = models.CharField(max_length=3)
+    local_name = models.CharField(max_length=3 , null=True)
     country_ID = models.ForeignKey(Countries)
-    latitude = models.FloatField()
-    longitude = models.FloatField()
-    description=models.TextField()
+    latitude = models.FloatField(null=True)
+    longitude = models.FloatField(null=True)
+    description=models.TextField(null=True)
+    rate = models.IntegerField()
     def __str__(self):
-        return self.city_ID
+        return self.city_name
 
 class Locations(models.Model):
     location_ID = models.AutoField(primary_key=True)
