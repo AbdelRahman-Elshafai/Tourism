@@ -4,6 +4,8 @@ from django.http import HttpResponse , HttpResponseRedirect
 
 from .models import Admin
 
+from .forms import CountriesForm , CitiesForm , CommentsForm , ExperienceForm , LocationsForm , UserForm , RentalForm , ReservationForm
+
 from Countries.models import Countries, Cities , Comments , Experience , Locations
 
 from Car_Rental.models import Car_Rental , Car_Reservation
@@ -134,32 +136,121 @@ def display_users(request):
 
 def create_car_reservation(request):
 
-    return render(request , 'home.html')
+    if request.method == "POST":
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/Control/panel")
+    else:
+
+        form = ReservationForm()
+
+        context = {"reservation_form": form}
+
+        return render(request, 'form.html', context)
 
 def create_cities(request):
 
-    return render(request , 'home.html')
+    if request.method == "POST":
+        form = CitiesForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/Control/panel")
+    else:
+
+        form = CitiesForm()
+
+        context = {"cities_form": form}
+
+        return render(request, 'form.html', context)
 
 def create_comments(request):
 
-    return render(request , 'home.html')
+    if request.method == "POST":
+        form = CommentsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/Control/panel")
+    else:
+
+        form = CommentsForm()
+
+        context = {"comments_form": form}
+
+        return render(request, 'form.html', context)
 
 def create_countries(request):
 
-    return render(request , 'home.html')
+    if request.method == "POST":
+        form = CountriesForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/Control/panel")
+    else:
+
+        form = CountriesForm()
+
+        context = {"countries_form": form}
+
+        return render(request, 'form.html', context)
+
 
 def create_experience(request):
 
-    return render(request , 'home.html')
+    if request.method == "POST":
+        form = ExperienceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/Control/panel")
+    else:
+
+        form = ExperienceForm()
+
+        context = {"experience_form": form}
+
+        return render(request, 'form.html', context)
 
 def create_locations(request):
 
-    return render(request , 'home.html')
+    if request.method == "POST":
+        form = LocationsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/Control/panel")
+    else:
+
+        form = LocationsForm()
+
+        context = {"locations_form": form}
+
+        return render(request, 'form.html', context)
 
 def create_users(request):
 
-    return render(request , 'home.html')
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/Control/panel")
+    else:
+
+        form = UserForm()
+
+        context = {"users_form": form}
+
+        return render(request, 'form.html', context)
 
 def create_car_rental(request):
 
-    return render(request , 'home.html')
+    if request.method == "POST":
+        form = RentalForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/Control/panel")
+    else:
+
+        form = RentalForm()
+
+        context = {"rental_form": form}
+
+        return render(request, 'form.html', context)

@@ -29,8 +29,8 @@ class Locations(models.Model):
     location_ID = models.AutoField(primary_key=True)
     location_name = models.CharField(max_length=50)
     city_ID = models.ForeignKey(Cities)
-    latitude = models.FloatField()
-    longitude = models.FloatField()
+    latitude = models.FloatField(null=True)
+    longitude = models.FloatField(null=True)
     description = models.TextField()
     def __str__(self):
         return self.location_ID
