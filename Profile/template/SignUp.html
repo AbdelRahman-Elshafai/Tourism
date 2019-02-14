@@ -1,19 +1,26 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/SignUp.css' %}">
+    {% load static %}
+    <link href="{% static 'css/SignUp.css' %}" rel="stylesheet">
 </head>
 <body>
-    <div id="myform">
-        <form method="post">{% csrf_token %}
+    <div id ="myform">
+        <form method="post" >
+            {% csrf_token %}
             <h1>Registeration form</h1>
-            <section>
                 <h2>Contact information</h2>
-                 {{ form.as_p }}
-            </section>
+                {% for field in form %}
+                  <p>
+                    {{ field.label_tag }}
+                    {{ field }}<br>
+                    {% for error in field.errors %}
+                      <small style="color: red">{{ error }}</small><br>
+                    {% endfor %}
+                  </p>
+                {% endfor %}
             <section>
                 <p> <button type="submit">Validate the Registeration</button> </p>
             </section>

@@ -1,6 +1,6 @@
  /* Style inputs, select elements and textareas */
 input[type=text],[type=email],[type=password] {
-  width: 60%;
+  width: 50%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -15,6 +15,7 @@ label {
   display: inline-block;
 }
 
+
 /* Style the submit button */
 button[type=submit] {
   width:250px;
@@ -26,18 +27,18 @@ button[type=submit] {
   border-radius: 20px;
   cursor: pointer;
   position : relative;
-  left :65px;
+  left :115px;
   top :20px;
 }
 
 
 #myform{
     position:relative;
-    width:400px;
-    height:500px;
+    width:40%;
     border-radius: 20px;
     background-color:  	#F5F5F5;
     padding: 20px;
-    left:33%;
-    top:40px;
+    left:28%;
+    top:20px;
 }
+

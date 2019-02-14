@@ -21,7 +21,22 @@ from django.contrib.auth import urls
 from Control import views
 
 urlpatterns = [
-    url(r'^panel/$', views.printAdmin),
-
+    url(r'^panel/$', views.display_dash_board),
+    url(r'^panel/CarRental$', views.display_car_rental),
+    url(r'^panel/CarReservation$', views.display_car_reservation),
+    url(r'^panel/Cities$', views.display_cities),
+    url(r'^panel/Comments$', views.display_comments),
+    url(r'^panel/Countries$', views.display_countries),
+    url(r'^panel/Experience$', views.display_experience),
+    url(r'^panel/Locations$', views.display_locations),
+    url(r'^panel/Users$', views.display_users),
+    url(r'^panel/ReservationForm$', views.create_car_reservation),
+    url(r'^panel/CitiesForm$', views.create_cities),
+    url(r'^panel/CommentsForm$', views.create_comments),
+    url(r'^panel/CountriesForm$', views.create_countries),
+    url(r'^panel/ExperienceForm$', views.create_experience),
+    url(r'^panel/LocationsForm$', views.create_locations),
+    url(r'^panel/UsersForm$', views.create_users),
+    url(r'^panel/RentalForm$', views.create_car_rental),
 
 ]
