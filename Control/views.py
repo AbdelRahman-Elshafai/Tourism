@@ -8,4 +8,4 @@ from .models import Admin
 
 def printAdmin(request):
 
-    return HttpResponse("Hello Control")
+    return render(request , 'home.html')
