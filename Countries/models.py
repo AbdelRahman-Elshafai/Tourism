@@ -33,7 +33,7 @@ class Locations(models.Model):
     longitude = models.FloatField()
     description = models.TextField()
     def __str__(self):
-        return self.location_ID
+        return self.location_name
 
 
 class Experience(models.Model):

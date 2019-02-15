@@ -15,7 +15,8 @@
         height: 890px;
         overflow: hidden;
         width: 100%;
-        }
+      }
+
       .carousel-item img {
       width: 100%;
       }
@@ -39,7 +40,7 @@
 
 
     </style>
-    <title>Home</title>
+    <title>{{country_info.country_name}}</title>
   </head>
   <body>
 
@@ -92,9 +93,8 @@
 </nav>
 <hr />
 <div class="d-flex justify-content-center">
-  <h4 class="text-info">Top 6 Countries </h4>
+  <h2 class="text-info">{{country_info.country_name}} </h2>
 </div>
-    <hr />
 
 
 
@@ -106,35 +106,15 @@
         {% for country in top_countries %}
             <li data-target="#carouselExampleIndicators"></li>
         {% endfor %}
-
-
     </ol>
+
+
     <div class="carousel-inner">
         <div class="carousel-item active">
-        <img class="d-block w-100" src="{% static  'main.jpg' %}" >
-      </div>
-        {% for country in top_countries %}
-          <div class="carousel-item ">
-
-            {% with country.country_name|add:'.jpg' as image_static %}
+        {% with country_info.country_name|add:'.jpg' as image_static %}
             <img class="d-block w-100" src="{% static  image_static %}">
-            {% endwith %}
-            <div class = "img-overlay">
-              <a href="{% url 'country' country.country_name %}" class="btn btn-info" role="button">Learn More About {{country.country_name}}</a>
-            </div>
-          </div>
-
-        {% endfor %}
-
-
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+          {% endwith %}
+      </div>
   </div>
 
 
@@ -143,23 +123,27 @@
 
 <!--end country-->
 
+
+
     <div class="d-flex justify-content-center">
-    <h4 class="text-info">Top 6 Cities </h4>
+    <h4 class="text-info">Cities in {{country_info.country_name}}</h4>
   </div>
     <hr />
 
 
+
+
     <div class="container">
   <div class="row">
-    {% for city in top_three_cities %}
+    {% for city in top_two_cities %}
     <div class="col-sm-4">
       <a href="{{city.city_name}}" >
         {% with city.city_name|add:'.jpg' as image_static %}
 
-        <img class="img-fluid" src="{% static  image_static %}" alt="">
+        <img class="img-fluid" src="{% static  image_static %}" alt="" style="width:120px;height:100px;">
 
         {% endwith %}
-
+        {{city.city_name}}
       </a>
     </div>
     {% endfor %}
@@ -173,19 +157,65 @@
 
     <div class="container">
   <div class="row">
-    {% for city in next_top_three_cities %}
+    {% for city in next_top_two_cities %}
     <div class="col-sm-4">
       <a href="{{city.city_name}}" >
         {% with city.city_name|add:'.jpg' as image_static %}
-        <img class="img-fluid" src="{% static  image_static %}" alt="">
+        <img class="img-fluid" src="{% static  image_static %}" alt="" style="width:120px;height:100px;">
         {% endwith %}
+        {{city.city_name}}
       </a>
+
     </div>
     {% endfor %}
 
   </div>
 </div>
 
+
+
+        <hr />
+
+
+
+    <div class="container">
+  <div class="row">
+    {% for city in last_top_two_cities %}
+    <div class="col-sm-4">
+      <a href="{{city.city_name}}" >
+        {% with city.city_name|add:'.jpg' as image_static %}
+        <img class="img-fluid" src="{% static  image_static %}" alt="" style="width:120px;height:100px;">
+        {% endwith %}
+        {{city.city_name}}
+      </a>
+
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+
+<br>
+<br>
+
+<div class="container">
+  <div class="row">
+    {% for city in rest_city_records %}
+    <div class="col-sm-4">
+      <a href="{{city.city_name}}" >
+        {{city.city_name}}
+      </a>
+
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+
+<br>
+<br>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
