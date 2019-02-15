@@ -58,7 +58,7 @@ ROOT_URLCONF = 'Tourism.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'Countries/template') , os.path.join(BASE_DIR,'Profile/template')],
+        'DIRS': [os.path.join(BASE_DIR, 'Countries/template') , os.path.join(BASE_DIR,'Profile/template') , os.path.join(BASE_DIR, 'Control/template')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

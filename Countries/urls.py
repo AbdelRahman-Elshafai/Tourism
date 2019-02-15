@@ -22,6 +22,6 @@ from Countries import views
 
 urlpatterns = [
     url(r'^home/$', views.displayHome),
-
+    url(r'^(?P<country_name>[A-Za-z , A-Za-z]+)$' , views.showCountry , name='country'),
 
 ]

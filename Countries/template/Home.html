@@ -61,7 +61,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           {% for c in all_countries %}
-            <a class="dropdown-item" href="{{c.country_name}}">{{c.country_name}}</a>
+            <a class="dropdown-item" href="{% url 'country' c.country_name %}">{{c.country_name}}</a>
           {% endfor %}
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">See All Countries</a>
@@ -99,7 +99,7 @@
 
 
 
-
+<!--country-->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000">
     <ol class=" carousel-indicators">
       <li data-target="#carouselExampleIndicators" class="active"></li>
@@ -120,7 +120,7 @@
             <img class="d-block w-100" src="{% static  image_static %}">
             {% endwith %}
             <div class = "img-overlay">
-              <a href="{{country.country_name}}" class="btn btn-info" role="button">Learn More About {{country.country_name}}</a>
+              <a href="{% url 'country' country.country_name %}" class="btn btn-info" role="button">Learn More About {{country.country_name}}</a>
             </div>
           </div>
 
@@ -140,6 +140,9 @@
 
       <hr />
   </div>
+
+<!--end country-->
+
     <div class="d-flex justify-content-center">
     <h4 class="text-info">Top 6 Cities </h4>
   </div>
