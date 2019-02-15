@@ -17,4 +17,9 @@ from django.conf.urls import url
 from Profile import views
 urlpatterns = [
         url(r'^home/register$', views.addUser),  ### visitor moved from home to register
+        url(r'^home/login$', views.loginUser),
+        url(r'^home$', views.temphome),
+
 ]
+
+

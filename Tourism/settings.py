@@ -25,7 +25,7 @@ SECRET_KEY = 'hw%jo35apvljd9!i^ilq5p093r#v@zi1__yeycb-3hhr%i_ecj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 LOGIN_REDIRECT_URL = '/'
 
 # Application definition
@@ -81,8 +81,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Tourism',
-        'USER': 'root',
-        'PASSWORD': 'esraa1234!',
+        'USER': 'phpmyadmin',
+        'PASSWORD': 'Os@12345',
         'HOST': 'localhost',
         'PORT': '3306'
     }
