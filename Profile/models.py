@@ -16,6 +16,8 @@ class User(models.Model):
     user_email  = models.EmailField(max_length=200)
     blk_flg = models.BooleanField(default= False)
 
+
+
     def __int__(self):
         return self.user_id
 

@@ -21,4 +21,6 @@ urlpatterns = [
     url(r'^Control/', include('Control.urls')),
     url(r'^Countries/', include('Countries.urls')),
     url(r'^Profile/', include('Profile.urls')),
+    url(r'^Profile/', include('django.contrib.auth.urls')),
+
 ]

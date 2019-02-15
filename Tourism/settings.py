@@ -26,7 +26,7 @@ SECRET_KEY = 'hw%jo35apvljd9!i^ilq5p093r#v@zi1__yeycb-3hhr%i_ecj'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+LOGIN_REDIRECT_URL = '/'
 
 # Application definition
 
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'Tourism.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'Countries/template') , os.path.join(BASE_DIR,'Profile/template')],
+        'DIRS': [os.path.join(BASE_DIR, 'Countries/template') , os.path.join(BASE_DIR,'Profile/template') , os.path.join(BASE_DIR, 'Control/template')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,4 +125,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = os.path.join(BASE_DIR,'Countries/static/')
+STATIC_URL = os.path.join(BASE_DIR,'/Profile/static/')
+
