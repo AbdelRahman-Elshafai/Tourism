@@ -49,7 +49,7 @@ class CommentsForm(forms.ModelForm):
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('user_name' , 'first_name' , 'last_name' , 'user_password' , 'user_email' , 'blk_flg')
+        fields = ('username' , 'first_name' , 'last_name' , 'user_password' , 'user_email' , 'blk_flg')
 
 
 class RentalForm(forms.ModelForm):

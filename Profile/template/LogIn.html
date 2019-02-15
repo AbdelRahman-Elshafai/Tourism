@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+    {% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'css/LogIn.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div id ="myform">
+        <form method="POST" >{% csrf_token %}
+            <h1>Login form</h1>
+                {% for field in form %}
+                  <p>
+                    {{ field.label_tag }}
+                    {{ field }}<br>
+                    {% for error in field.errors %}
+                      <small style="color: red">{{ error }}</small><br>
+                    {% endfor %}
+                  </p>
+                {% endfor %}
+            <section>
+                <p> <button type="submit">Log In</button> </p>
+            </section>
+        </form>
+    </div>
+</body>
+</html>
