@@ -81,8 +81,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Tourism',
-        'USER': 'phpmyadmin',
-        'PASSWORD': 'Os@12345',
+        'USER': 'root',
+        'PASSWORD': 'SiliconCore',
         'HOST': 'localhost',
         'PORT': '3306'
     }
