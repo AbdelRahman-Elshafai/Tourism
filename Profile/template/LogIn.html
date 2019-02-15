@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="{% static 'css/SignUp.css' %}" rel="stylesheet">
+    <link href="{% static 'css/LogIn.css' %}" rel="stylesheet">
 </head>
 <body>
     <div id ="myform">
         <form method="POST" >{% csrf_token %}
-            <h1>Registeration form</h1>
-                <h2>Contact information</h2>
+            <h1>Login form</h1>
                 {% for field in form %}
                   <p>
                     {{ field.label_tag }}
@@ -21,7 +20,7 @@
                   </p>
                 {% endfor %}
             <section>
-                <p> <button type="submit">Validate the Registeration</button> </p>
+                <p> <button type="submit">Log In</button> </p>
             </section>
         </form>
     </div>
