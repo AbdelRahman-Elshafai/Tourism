@@ -1,6 +1,5 @@
 from django.shortcuts import render
 
-
 from .models import Countries , Cities
 from django.http import HttpResponse , HttpResponseRedirect
 
@@ -44,4 +43,22 @@ def displayHome(request):
 
     return render(request , 'Home.html' , context)
 
+
+def showCountry(request,country_name):
+
+    countries = Countries.objects.all()
+    country_info=Countries.objects.get(country_name=country_name)
+
+    country_id=country_info.country_ID
+
+    top_cities = list((Cities.objects.filter(country_ID=country_id).order_by('-rate').values_list('rate', flat=True).distinct()))
+    top_city_records = (Cities.objects.filter(country_ID=country_id).order_by('-rate').filter(rate__in=top_cities[:6]))
+    top_two_cities = top_city_records[:2]
+    next_top_two_cities = top_city_records[2:4]
+    last_top_two_cities = top_city_records[4:6]
+    rest_city_records = (Cities.objects.filter(country_ID=country_id).filter(rate__in=top_cities[6:]))
+
+    context={'country_info':country_info,'top_two_cities':top_two_cities, 'next_top_two_cities':next_top_two_cities ,
+             'last_top_two_cities':last_top_two_cities,'rest_city_records':rest_city_records,'all_countries':countries}
+    return render(request,'country.html',context)
 
