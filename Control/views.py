@@ -136,121 +136,164 @@ def display_users(request):
 
 def create_car_reservation(request):
 
-    if request.method == "POST":
-        form = ReservationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/Control/panel")
+    form = ReservationForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/Control/panel")
     else:
-
-        form = ReservationForm()
-
-        context = {"reservation_form": form}
-
-        return render(request, 'form.html', context)
+        return render(request , 'form.html' , {"reservation_form" : form})
 
 def create_cities(request):
 
-    if request.method == "POST":
-        form = CitiesForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/Control/panel")
+    form = CitiesForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/Control/panel")
     else:
-
-        form = CitiesForm()
-
-        context = {"cities_form": form}
-
-        return render(request, 'form.html', context)
+        return render(request , 'form.html' , {"cities_form" : form})
 
 def create_comments(request):
 
-    if request.method == "POST":
-        form = CommentsForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/Control/panel")
+    form = CommentsForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/Control/panel")
     else:
-
-        form = CommentsForm()
-
-        context = {"comments_form": form}
-
-        return render(request, 'form.html', context)
+        return render(request , 'form.html' , {"comments_form" : form})
 
 def create_countries(request):
 
-    if request.method == "POST":
-        form = CountriesForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/Control/panel")
+    form = CountriesForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/Control/panel")
     else:
-
-        form = CountriesForm()
-
-        context = {"countries_form": form}
-
-        return render(request, 'form.html', context)
+        return render(request , 'form.html' , {"countries_form" : form})
 
 
 def create_experience(request):
 
-    if request.method == "POST":
-        form = ExperienceForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/Control/panel")
+    form = ExperienceForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/Control/panel")
     else:
-
-        form = ExperienceForm()
-
-        context = {"experience_form": form}
-
-        return render(request, 'form.html', context)
+        return render(request , 'form.html' , {"experience_form" : form})
 
 def create_locations(request):
 
-    if request.method == "POST":
-        form = LocationsForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/Control/panel")
+    form = LocationsForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/Control/panel")
     else:
-
-        form = LocationsForm()
-
-        context = {"locations_form": form}
-
-        return render(request, 'form.html', context)
+        return render(request , 'form.html' , {"locations_form" : form})
 
 def create_users(request):
 
-    if request.method == "POST":
-        form = UserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/Control/panel")
+    form = UserForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/Control/panel")
     else:
-
-        form = UserForm()
-
-        context = {"users_form": form}
-
-        return render(request, 'form.html', context)
+        return render(request , 'form.html' , {"users_form" : form})
 
 def create_car_rental(request):
 
-    if request.method == "POST":
-        form = RentalForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/Control/panel")
+    form = RentalForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/Control/panel")
     else:
+        return render(request , 'form.html' , {"rental_form" : form})
 
-        form = RentalForm()
 
-        context = {"rental_form": form}
 
-        return render(request, 'form.html', context)
+def edit_countries(request , country_name):
+
+
+    country = Countries.objects.get(country_name = country_name)
+
+    form = CountriesForm(request.POST or None , instance= country)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/Control/panel")
+    else:
+        return render(request , 'form.html' , {"countries_form" : form})
+
+
+
+#
+# def edit_car_rental(request , car_rental_name):
+#     pass
+#
+#
+#
+# def edit_car_reservation(request , car_rental_name):
+#     pass
+
+
+
+def edit_cities(request , city_name):
+    city = Cities.objects.get(city_name = city_name)
+    form = CitiesForm(request.POST or None , instance= city)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/Control/panel")
+    else:
+        return render(request , 'form.html' , {"cities_form" : form})
+
+# def edit_comments(request , comment_id):
+#     pass
+#
+# def edit_experience(request , exper_id):
+#     pass
+#
+
+def edit_locations(request , location_name):
+
+    location = Locations.objects.get(location_name = location_name)
+
+    form = LocationsForm(request.POST or None , instance=location)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/Control/panel")
+    else:
+        return render(request , 'form.html' , {"locations_form" : form})
+
+
+# def edit_users(request , user_name):
+#     pass
+
+
+
+def delete_countries(request , country_ID):
+
+    country = Countries.objects.get(country_ID = eval(country_ID))
+
+    country.delete()
+
+
+    return HttpResponseRedirect("/Control/panel")
+
+
+
+def delete_cities(request , city_ID):
+
+    city = Cities.objects.get(city_ID = eval(city_ID))
+
+    city.delete()
+
+
+    return HttpResponseRedirect("/Control/panel")
+
+
+
+def delete_locations(request , location_ID):
+
+    location = Locations.objects.get(location_ID = eval(location_ID))
+
+    location.delete()
+
+
+    return HttpResponseRedirect("/Control/panel")

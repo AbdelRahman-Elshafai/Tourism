@@ -6,7 +6,11 @@
     <td>{{item.latitude}}</td>
     <td>{{item.longitude}}</td>
     <td>{{item.rate}}</td>
-    <td>button</td>
-    <td>button</td>
+    <td>
+        <a href="Countries/edit/{{item.country_name}}" class="btn btn-info" role="button">Edit</a>
+    </td>
+    <td>
+        <a href="Countries/delete/{{item.country_ID}}" class="btn btn-info" role="button">Delete</a>
+    </td>
 </tr>
 {% endfor %}

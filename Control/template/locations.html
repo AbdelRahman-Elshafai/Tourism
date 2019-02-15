@@ -6,7 +6,11 @@
     <td>{{item.latitude}}</td>
     <td>{{item.longitude}}</td>
     <td>{{item.description}}</td>
-    <td>button</td>
-    <td>button</td>
+    <td>
+        <a href="Locations/edit/{{item.location_name}}" class="btn btn-info" role="button">Edit</a>
+    </td>
+    <td>
+        <a href="Locations/delete/{{item.location_ID}}" class="btn btn-info" role="button">Delete</a>
+    </td>
 </tr>
 {% endfor %}

@@ -8,7 +8,11 @@
     <td>{{item.longitude}}</td>
     <td>{{item.description}}</td>
     <td>{{item.rate}}</td>
-    <td>button</td>
-    <td>button</td>
+    <td>
+        <a href="Cities/edit/{{item.city_name}}" class="btn btn-info" role="button">Edit</a>
+    </td>
+    <td>
+        <a href="Cities/delete/{{item.city_ID}}" class="btn btn-info" role="button">Delete</a>
+    </td>
 </tr>
 {% endfor %}
