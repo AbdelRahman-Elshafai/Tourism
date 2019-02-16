@@ -29,7 +29,6 @@ from Countries.models import Locations , Cities
 def rent(request):
 
 
-
     form = RentalForm(request.POST or None)
 
     if form.is_valid():

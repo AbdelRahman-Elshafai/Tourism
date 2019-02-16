@@ -4,11 +4,11 @@ from django.http import HttpResponse , HttpResponseRedirect
 
 from .models import Admin
 
-from .forms import CountriesForm , CitiesForm , CommentsForm , ExperienceForm , LocationsForm , UserForm , RentalForm , ReservationForm
+from .forms import CountriesForm , CitiesForm , CommentsForm , ExperienceForm , LocationsForm , UserForm
 
 from Countries.models import Countries, Cities , Comments , Experience , Locations
 
-from Car_Rental.models import Car_Rental , Car_Reservation
+from Car_Rental.models import  Car_Reservation
 
 from Profile.models import User
 
@@ -20,34 +20,34 @@ def display_dash_board(request):
     return render(request , 'home.html')
 
 
-def display_car_rental(request):
-
-    rental = Car_Rental.objects.all()
-
-    # get all the field names of the model
-
-    field_names = [field.name for field in Car_Rental._meta.get_fields()][1:]
-
-
-    context = {"name": "Car Rental", "all": rental, "field_names": field_names}
-
-
-    return render(request , 'table.html' , context)
-
-
-def display_car_reservation(request):
-
-    reservation = Car_Reservation.objects.all()
-
-    # get all the field names of the model
-
-    field_names = [field.name for field in Car_Reservation._meta.get_fields()][1:]
+# def display_car_rental(request):
+#
+#     rental = Car_Rental.objects.all()
+#
+#     # get all the field names of the model
+#
+#     field_names = [field.name for field in Car_Rental._meta.get_fields()][1:]
+#
+#
+#     context = {"name": "Car Rental", "all": rental, "field_names": field_names}
+#
+#
+#     return render(request , 'table.html' , context)
 
 
-    context = {"name": "Car Reservation", "all": reservation, "field_names": field_names}
-
-
-    return render(request , 'table.html' , context)
+# def display_car_reservation(request):
+#
+#     reservation = Car_Reservation.objects.all()
+#
+#     # get all the field names of the model
+#
+#     field_names = [field.name for field in Car_Reservation._meta.get_fields()][1:]
+#
+#
+#     context = {"name": "Car Reservation", "all": reservation, "field_names": field_names}
+#
+#
+#     return render(request , 'table.html' , context)
 
 def display_cities(request):
 
@@ -134,14 +134,14 @@ def display_users(request):
 
 
 
-def create_car_reservation(request):
-
-    form = ReservationForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect("/Control/panel")
-    else:
-        return render(request , 'form.html' , {"reservation_form" : form})
+# def create_car_reservation(request):
+#
+#     form = ReservationForm(request.POST or None)
+#     if form.is_valid():
+#         form.save()
+#         return HttpResponseRedirect("/Control/panel")
+#     else:
+#         return render(request , 'form.html' , {"reservation_form" : form})
 
 def create_cities(request):
 
@@ -198,14 +198,14 @@ def create_users(request):
     else:
         return render(request , 'form.html' , {"users_form" : form})
 
-def create_car_rental(request):
-
-    form = RentalForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect("/Control/panel")
-    else:
-        return render(request , 'form.html' , {"rental_form" : form})
+# def create_car_rental(request):
+#
+#     form = RentalForm(request.POST or None)
+#     if form.is_valid():
+#         form.save()
+#         return HttpResponseRedirect("/Control/panel")
+#     else:
+#         return render(request , 'form.html' , {"rental_form" : form})
 
 
 
