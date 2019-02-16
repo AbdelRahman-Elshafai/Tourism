@@ -32,6 +32,20 @@ def rent(request):
     form = RentalForm(request.POST or None)
 
     if form.is_valid():
+        print("hello")
+        user_id = 1
+
+        location_id = form.POST['location']
+
+        pick = form.POST['pick']
+
+        drop = form.POST['drop']
+
+        print(location_id)
+
+        print(pick)
+
+        print(drop)
 
         return HttpResponseRedirect("/Car_Rental/rent")
     else:
@@ -46,7 +60,7 @@ def rent(request):
         #populate the choices of the select form
         choices = []
         for loc , id in locations:
-            choices += ((id,) + (loc,),)
+            choices += ((int(id),) + (loc,),)
 
         print(choices)
         form.fields['location'].choices = choices
