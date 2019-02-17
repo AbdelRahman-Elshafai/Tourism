@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Countries , Cities
+from .models import Countries , Cities , Locations
 from django.http import HttpResponse , HttpResponseRedirect
 
 # Create your views here.
@@ -62,3 +62,15 @@ def showCountry(request,country_name):
              'last_top_two_cities':last_top_two_cities,'rest_city_records':rest_city_records,'all_countries':countries}
     return render(request,'country.html',context)
 
+
+
+def showCity(request,city_name,country_name='country'):
+    city_info=Cities.objects.get(city_name=city_name)
+
+
+    city_id=city_info.city_ID
+    locations_info=Locations.objects.filter(city_ID=city_id)
+
+    context = {'city_info': city_info,'locations_info':locations_info}
+
+    return render(request,'city.html',context)

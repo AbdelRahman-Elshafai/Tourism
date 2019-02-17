@@ -32,7 +32,7 @@
         height: 50%;
       }
     </style>
-    <title>{{country_info.country_name}}</title>
+    <title>{{city_info.city_name}}</title>
   </head>
   <body>
 
@@ -88,20 +88,21 @@
 <hr />
 
 
+
 <div class="d-flex justify-content-center">
-  <h2 class="text-info">{{country_info.country_name}} </h2>
+  <h2 class="text-info">{{city_info.city_name}} </h2>
 </div>
 
 
 
 
-<!--country-->
+<!--city-->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000">
 
 
     <div class="carousel-inner">
         <div class="carousel-item active">
-        {% with country_info.country_name|add:'.jpg' as image_static %}
+        {% with city_info.city_name|add:'.jpg' as image_static %}
             <img class="d-block w-100" src="{% static  image_static %}">
           {% endwith %}
       </div>
@@ -111,12 +112,22 @@
       <hr />
   </div>
 
-<!--end country-->
+<!--end city-->
 
 
+  <div class="d-flex justify-content-center">
+    <h4 class="text-info">Welcome to {{city_info.city_name}}</h4>
+  </div>
 
     <div class="d-flex justify-content-center">
-    <h4 class="text-info">Cities in {{country_info.country_name}}</h4>
+    <br>
+      <p align="center">{{city_info.description}}</p>
+    </div>
+
+    <br>
+
+    <div class="d-flex justify-content-center">
+    <h4 class="text-info">Sights in {{city_info.city_name}}</h4>
   </div>
     <hr />
 
@@ -125,83 +136,23 @@
 
     <div class="container">
   <div class="row">
-    {% for city in top_two_cities %}
+    {% for location in locations_info %}
     <div class="col-sm-4">
-      <a href="{{city.city_name}}" >
-        {% with city.city_name|add:'.jpg' as image_static %}
+      <!--<a href="#" >-->
+        {% with location.location_name|add:'.jpg' as image_static %}
 
-        <img class="img-fluid" src="{% static  image_static %}" alt="" style="width:120px;height:100px;">
+        <img class="img-fluid" src="{% static  image_static %}" alt="" style="width:120px;height:100px;border-radius:15px;border:2px solid;border-color: #00a5ff;" >
 
         {% endwith %}
-        {{city.city_name}}
-      </a>
+        {{location.location_name}}
+      <!--</a>-->
+      <hr/>
     </div>
     {% endfor %}
 
   </div>
 </div>
 
-    <hr />
-
-
-
-    <div class="container">
-  <div class="row">
-    {% for city in next_top_two_cities %}
-    <div class="col-sm-4">
-      <a href="{{city.city_name}}" >
-        {% with city.city_name|add:'.jpg' as image_static %}
-        <img class="img-fluid" src="{% static  image_static %}" alt="" style="width:120px;height:100px;">
-        {% endwith %}
-        {{city.city_name}}
-      </a>
-
-    </div>
-    {% endfor %}
-
-  </div>
-</div>
-
-
-
-        <hr />
-
-
-
-    <div class="container">
-  <div class="row">
-    {% for city in last_top_two_cities %}
-    <div class="col-sm-4">
-      <a href="{{city.city_name}}" >
-        {% with city.city_name|add:'.jpg' as image_static %}
-        <img class="img-fluid" src="{% static  image_static %}" alt="" style="width:120px;height:100px;">
-        {% endwith %}
-        {{city.city_name}}
-      </a>
-
-    </div>
-    {% endfor %}
-
-  </div>
-</div>
-
-
-<br>
-<br>
-
-<div class="container">
-  <div class="row">
-    {% for city in rest_city_records %}
-    <div class="col-sm-4">
-      <a href="{{city.city_name}}" >
-        {{city.city_name}}
-      </a>
-
-    </div>
-    {% endfor %}
-
-  </div>
-</div>
 
 
 <br>
