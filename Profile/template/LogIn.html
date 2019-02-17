@@ -6,7 +6,7 @@
     <title>Title</title>
     <link href="{% static 'css/LogIn.css' %}" rel="stylesheet">
 </head>
-<body>
+<body background="{% static 'bg2.jpg' %}" style="background-repeat: no-repeat; background-size: cover;">
     <div id ="myform">
         <form method="POST" >{% csrf_token %}
             <h1>Login form</h1>
@@ -14,11 +14,13 @@
                   <p>
                     {{ field.label_tag }}
                     {{ field }}<br>
-                    {% for error in field.errors %}
-                      <small style="color: red">{{ error }}</small><br>
-                    {% endfor %}
                   </p>
                 {% endfor %}
+                    {% for message in messages %}
+                    <div class="alert alert-success">
+                        <small style="color: red">{{ message }}</small>
+                    </div>
+                    {% endfor %}
             <section>
                 <p> <button type="submit">Log In</button> </p>
             </section>

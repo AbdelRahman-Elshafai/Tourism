@@ -6,7 +6,7 @@
     <title>Title</title>
     <link href="{% static 'css/SignUp.css' %}" rel="stylesheet">
 </head>
-<body>
+<body background="{% static 'bg.jpg' %}" style="background-repeat: no-repeat;  background-size: cover;">
     <div id ="myform">
         <form method="POST" >{% csrf_token %}
             <h1>Registeration form</h1>
