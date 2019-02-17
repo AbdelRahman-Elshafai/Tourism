@@ -4,7 +4,7 @@ from Countries.models import Countries , Comments , Cities , Locations , Experie
 
 from Profile.models import User
 
-from Car_Rental.models import Car_Rental , Car_Reservation
+from Car_Rental.models import  Car_Reservation
 
 from .models import Admin
 
@@ -49,16 +49,11 @@ class CommentsForm(forms.ModelForm):
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('user_name' , 'first_name' , 'last_name' , 'user_password' , 'user_email' , 'blk_flg')
+        fields = ('username' , 'first_name' , 'last_name' , 'user_password' , 'user_email' , 'blk_flg')
 
 
-class RentalForm(forms.ModelForm):
-    class Meta:
-        model = Car_Rental
-        fields = ('car_rental_name' , 'location_ID')
 
-
-class ReservationForm(forms.ModelForm):
-    class Meta:
-        model = Car_Reservation
-        fields = ('rental_id' , 'user_id')
+# class ReservationForm(forms.ModelForm):
+#     class Meta:
+#         model = Car_Reservation
+#         fields = ('rental_id' , 'user_id')

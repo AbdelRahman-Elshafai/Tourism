@@ -1,0 +1,68 @@
+ /* Style inputs, select elements and textareas */
+input[type=text],[type=email],[type=password] {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  resize: vertical;
+  float:right;
+}
+
+/* Style the label to display next to the inputs */
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+
+/* Style the submit button */
+button[type=submit] {
+  width:250px;
+  height:auto;
+  background-color: rgb(48, 95, 117);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  position : relative;
+  left :130px;
+  top :20px;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+}
+
+a:link {
+  color: #265301;
+}
+
+a:visited {
+  color: #437A16;
+}
+
+a:focus {
+  border-bottom: 1px solid;
+  background: #BAE498;
+}
+
+a:hover {
+  border-bottom: 1px solid;
+  background: #CDFEAA;
+}
+
+
+
+#myform{
+    position:relative;
+    width:40%;
+    border-radius: 20px;
+    background-color: rgb(245, 245, 245,0.5);
+    padding: 20px;
+    left:28%;
+    top:20px;
+}
