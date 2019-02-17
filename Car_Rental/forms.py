@@ -12,12 +12,15 @@ from Countries.models import Countries
 #     sender = forms.EmailField(required=False)
 #
 
+class choice_field(forms.ChoiceField):
+    def valid_value(self , value):
+        return True
 
 
 class RentalForm(forms.Form):
 
     #make the choice field with intial value to pick up his location
-    location = forms.ChoiceField( widget=forms.Select() , required=False )
+    location = choice_field( widget=forms.Select() , required=False )
 
     #make the pick up date of form
     pick = forms.DateTimeField(widget=forms.DateTimeField() , required=True)
@@ -39,3 +42,4 @@ class RentalForm(forms.Form):
             'id': 'datepicker2',
             'class': 'dates form-control',
             'placeholder': 'Date & time'})
+

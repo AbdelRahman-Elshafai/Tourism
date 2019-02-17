@@ -4,6 +4,10 @@ from django.shortcuts import render_to_response
 
 from Car_Rental.forms import RentalForm
 
+from Car_Rental.models import Car_Reservation
+
+from Profile.models import User
+
 from Countries.models import Locations , Cities
 
 # Create your views here.
@@ -31,21 +35,33 @@ def rent(request):
 
     form = RentalForm(request.POST or None)
 
+
+
     if form.is_valid():
-        print("hello")
+
+        #user id will be in session
         user_id = 1
 
-        location_id = form.POST['location']
+        # get location id from value selected
+        location_id = form.cleaned_data['location']
 
-        pick = form.POST['pick']
+        # pick up date
+        pick = form.cleaned_data['pick']
 
-        drop = form.POST['drop']
+        # drop off date
+        drop = form.cleaned_data['drop']
 
-        print(location_id)
+        # create an instance of the location cuz it's a foreign key by using the id
+        location_instance = Locations.objects.get(location_ID=eval(location_id))
 
-        print(pick)
+        # create instance of the user cuz it's a foreign key by using his id
+        user_instance = User.objects.get(user_id=user_id)
 
-        print(drop)
+        # using the instance make the row and use date() to get the date only not the time
+        reservation = Car_Reservation(location_ID=location_instance , user_id=user_instance , pick_up=pick.date() , drop_off=drop.date())
+
+        # insert into database
+        reservation.save()
 
         return HttpResponseRedirect("/Car_Rental/rent")
     else:
@@ -58,11 +74,16 @@ def rent(request):
         locations = Locations.objects.values_list('location_name' ,  'location_ID').filter(city_ID=city_id)
 
         #populate the choices of the select form
+
         choices = []
         for loc , id in locations:
             choices += ((int(id),) + (loc,),)
 
-        print(choices)
         form.fields['location'].choices = choices
 
         return render(request , 'rent.html' , {"rental_form" : form })
+
+
+
+
+
