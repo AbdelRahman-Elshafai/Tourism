@@ -18,9 +18,10 @@ from django.contrib import admin
 
 from django.contrib.auth import urls
 
-from . import views
+from Car_Rental import views
 
 urlpatterns = [
-    url('rent/$', views.contact),
+    # url('rent/$', views.contact),
+    url(r'^rent/$' , views.rent),
 
 ]

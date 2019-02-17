@@ -11,21 +11,21 @@ from Countries.models import Locations
 
 # Create your models here.
 #class representing table for car rentals services
-class Car_Rental (models.Model):
-
-
-    # setting fields of the table
-    car_rental_id = models.AutoField(primary_key=True)
-    car_rental_name = models.CharField(max_length=45)
-    location_ID = models.ForeignKey(Locations , null=True)
-
-    def __str__(self):
-        return self.car_rental_name
+# class Car_Rental (models.Model):
+#
+#
+#     # setting fields of the table
+#     car_rental_id = models.AutoField(primary_key=True)
+#     car_rental_name = models.CharField(max_length=45)
+#     location_ID = models.ForeignKey(Locations , null=True)
+#
+#     def __str__(self):
+#         return self.car_rental_name
 
 class Car_Reservation(models.Model):
 
     reservation_id = models.AutoField(primary_key=True )
-    rental_id = models.ForeignKey(Car_Rental)
+    location_ID = models.ForeignKey(Locations , null=True)
     user_id = models.ForeignKey(User)
     pick_up = models.CharField(max_length = 200 , null=True)
     drop_off = models.CharField(max_length = 200 , null=True)
