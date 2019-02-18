@@ -21,7 +21,6 @@ from django.contrib.auth import urls
 from Car_Rental import views
 
 urlpatterns = [
-    # url('rent/$', views.contact),
-    url(r'^rent/$' , views.rent),
+    url(r'^([A-Za-z , A-Za-z]+)/(?P<city_name>[A-Za-z \- A-Za-z]+)/rent$', views.rent),
 
 ]

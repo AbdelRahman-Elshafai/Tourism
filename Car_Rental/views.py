@@ -30,7 +30,7 @@ from Countries.models import Locations , Cities
 
 
 
-def rent(request):
+def rent(request , city_name):
 
 
     form = RentalForm(request.POST or None)
@@ -63,11 +63,11 @@ def rent(request):
         # insert into database
         reservation.save()
 
-        return HttpResponseRedirect("/Car_Rental/rent")
+        return HttpResponseRedirect("rent")
     else:
         # get the id of the city
 
-        city_id = Cities.objects.only('city_ID').get(city_name='al-Iskandariyah').city_ID
+        city_id = Cities.objects.only('city_ID').get(city_name=city_name).city_ID
 
         # get all the locations names and id's related to that city
 

@@ -9,7 +9,6 @@ from django.http import HttpResponse , HttpResponseRedirect
 
 def displayHome(request):
 
-    print("home")
 
     #get all countries
 
@@ -48,7 +47,6 @@ def displayHome(request):
 
 def showCountry(request,country_name):
 
-    print("country")
     countries = Countries.objects.all()
     country_info=Countries.objects.get(country_name=country_name)
 
@@ -68,12 +66,15 @@ def showCountry(request,country_name):
 
 
 def showCity(request,city_name,country_name='country'):
+
+    countries = Countries.objects.all()
+
     city_info=Cities.objects.get(city_name=city_name)
 
 
     city_id=city_info.city_ID
     locations_info=Locations.objects.filter(city_ID=city_id)
 
-    context = {'city_info': city_info,'locations_info':locations_info}
+    context = {'city_info': city_info,'locations_info':locations_info , 'all_countries': countries}
 
     return render(request,'city.html',context)

@@ -23,6 +23,6 @@ urlpatterns = [
     url(r'^Tourism/', include('Countries.urls')),
     # url(r'^Profile/', include('Profile.urls')),
     # url(r'^hotel/', include('hotel.urls')),
-    # url(r'^Car_Rental/', include('Car_Rental.urls')),
+    url(r'^Tourism/', include('Car_Rental.urls')),
 
 ]
