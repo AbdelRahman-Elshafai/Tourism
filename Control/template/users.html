@@ -1,0 +1,22 @@
+{% for item in all %}
+<tr>
+    <td>{{item.id}}</td>
+    <td>{{item.password}}</td>
+    <td>{{item.last_login}}</td>
+    <td>{{item.is_superuser}}</td>
+    <td>{{item.username}}</td>
+    <td>{{item.first_name}}</td>
+    <td>{{item.last_name}}</td>
+    <td>{{item.email}}</td>
+    <td>{{item.is_staff}}</td>
+    <td>{{item.is_active}}</td>
+    <td>{{item.date_joined}}</td>
+    <td>{{item.blk_flg}}</td>
+    <td>
+        <a href="Users/edit/{{item.username}}" class="btn btn-info" role="button">Edit</a>
+    </td>
+    <td>
+        <a href="Users/delete/{{item.id}}" class="btn btn-info" role="button">Delete</a>
+    </td>
+</tr>
+{% endfor %}

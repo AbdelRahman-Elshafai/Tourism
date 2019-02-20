@@ -18,10 +18,10 @@ from Profile import views
 from django.contrib.auth.views import login , logout
 
 urlpatterns = [
-        url(r'^[A-Za-z / A-Za-z]+/signup/$', views.addUser , name='signup'),  ### visitor moved from home to register
-        url(r'^[A-Za-z / A-Za-z]+/signin/$', login , {'template_name' : 'login.html'}),
-        url(r'^[A-Za-z / A-Za-z]+/logout/$', logout),
-        url(r'^[A-Za-z / A-Za-z]+/profile/$', views.viewAccount),
+        url(r'^[A-Za-z\- / A-Za-z\-]+/signup/$', views.addUser , name='signup'),  ### visitor moved from home to register
+        url(r'^[A-Za-z\- / A-Za-z\-]+/signin/$', login , {'template_name' : 'login.html'}),
+        url(r'^[A-Za-z\- / A-Za-z\-]+/logout/$', logout),
+        url(r'^[A-Za-z\- / A-Za-z\-]+/profile/$', views.viewAccount),
 
         # url(r'^home$', views.temphome),
 ]

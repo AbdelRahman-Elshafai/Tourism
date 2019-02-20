@@ -68,11 +68,11 @@ def display_locations(request):
 
 def display_users(request):
 
-    users = User.objects.all()
+    users = Users.objects.all()
 
     # get all the field names of the model
 
-    field_names = [field.name for field in User._meta.get_fields()][4:]
+    field_names = [field.name for field in Users._meta.get_fields()][5:-2]
 
 
     context = {"name": "Users", "all": users, "field_names": field_names}
@@ -105,7 +105,7 @@ def create_cities(request):
     form = CitiesForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/Control/panel")
+        return HttpResponseRedirect("/Tourism/home/panel")
     else:
         return render(request , 'form.html' , {"cities_form" : form})
 
@@ -116,7 +116,7 @@ def create_countries(request):
     form = CountriesForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/Control/panel")
+        return HttpResponseRedirect("/Tourism/home/panel")
     else:
         return render(request , 'form.html' , {"countries_form" : form})
 
@@ -127,7 +127,7 @@ def create_locations(request):
     form = LocationsForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/Control/panel")
+        return HttpResponseRedirect("/Tourism/home/panel")
     else:
         return render(request , 'form.html' , {"locations_form" : form})
 
@@ -136,7 +136,7 @@ def create_users(request):
     form = UserForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/Control/panel")
+        return HttpResponseRedirect("/Tourism/home/panel")
     else:
         return render(request , 'form.html' , {"users_form" : form})
 
@@ -145,7 +145,7 @@ def create_hotels(request):
     form = HotelForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/Control/panel")
+        return HttpResponseRedirect("/Tourism/home/panel")
     else:
         return render(request , 'form.html' , {"hotel_form" : form})
 
@@ -159,7 +159,7 @@ def edit_countries(request , country_name):
     form = CountriesForm(request.POST or None , instance= country)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/Control/panel")
+        return HttpResponseRedirect("/Tourism/home/panel")
     else:
         return render(request , 'form.html' , {"countries_form" : form})
 
@@ -172,7 +172,7 @@ def edit_cities(request , city_name):
     form = CitiesForm(request.POST or None , instance= city)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/Control/panel")
+        return HttpResponseRedirect("/Tourism/home/panel")
     else:
         return render(request , 'form.html' , {"cities_form" : form})
 
@@ -185,7 +185,7 @@ def edit_locations(request , location_name):
     form = LocationsForm(request.POST or None , instance=location)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/Control/panel")
+        return HttpResponseRedirect("/Tourism/home/panel")
     else:
         return render(request , 'form.html' , {"locations_form" : form})
 
@@ -198,9 +198,21 @@ def edit_hotels(request , hotel_name):
     form = HotelForm(request.POST or None , instance=hotels)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/Control/panel")
+        return HttpResponseRedirect("/Tourism/home/panel")
     else:
         return render(request , 'form.html' , {"hotel_form" : form})
+
+
+def edit_users(request , username):
+
+    users = Users.objects.get(username = username)
+
+    form = UserForm(request.POST or None , instance=users)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/Tourism/home/panel")
+    else:
+        return render(request , 'form.html' , {"users_form" : form})
 
 
 
@@ -210,9 +222,7 @@ def delete_countries(request , country_ID):
 
     country.delete()
 
-
-    return HttpResponseRedirect("/Control/panel")
-
+    return HttpResponseRedirect("/Tourism/home/panel")
 
 
 def delete_cities(request , city_ID):
@@ -221,9 +231,7 @@ def delete_cities(request , city_ID):
 
     city.delete()
 
-
-    return HttpResponseRedirect("/Control/panel")
-
+    return HttpResponseRedirect("/Tourism/home/panel")
 
 
 def delete_locations(request , location_ID):
@@ -232,9 +240,7 @@ def delete_locations(request , location_ID):
 
     location.delete()
 
-
-    return HttpResponseRedirect("/Control/panel")
-
+    return HttpResponseRedirect("/Tourism/home/panel")
 
 
 def delete_hotels(request , hotel_id):
@@ -243,5 +249,13 @@ def delete_hotels(request , hotel_id):
 
     hotel.delete()
 
+    return HttpResponseRedirect("/Tourism/home/panel")
 
-    return HttpResponseRedirect("/Control/panel")
+
+def delete_users(request , id):
+
+    user = Users.objects.get(id = eval(id))
+
+    user.delete()
+
+    return HttpResponseRedirect("/Tourism/home/panel")

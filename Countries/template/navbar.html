@@ -33,14 +33,24 @@
         </div>
       </li>
       {% endif %}
+
         {% if user.is_authenticated %}
       <li class="nav-item active">
-        <a class="nav-link text-white" href="profile">View Profile<span class="sr-only">(current)</span></a>
-      </li>
+
+
+        {% if user.is_superuser %}
+            <a class="nav-link text-white" href="panel">Admin Panel<span class="sr-only">(current)</span></a>
+        </li>
+        {% else %}
+      <a class="nav-link text-white" href="profile">View Profile<span class="sr-only">(current)</span></a>
+        </li>
+        {% endif%}
 
         <li class="nav-item active">
         <a class="nav-link text-white" href="logout">Sign Out<span class="sr-only">(current)</span></a>
       </li>
+
+
 
         {% else %}
         <li class="nav-item active">
