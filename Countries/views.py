@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 
-from .models import Countries , Cities , Locations
+from .models import Countries , Cities , Locations , Experience , Comments
+from .forms import ExperienceForm ,CommentForm
+from Profile.models import User
 from django.http import HttpResponse , HttpResponseRedirect
+import datetime
 
 # Create your views here.
 
@@ -65,12 +68,70 @@ def showCountry(request,country_name):
 
 
 def showCity(request,city_name,country_name='country'):
-    city_info=Cities.objects.get(city_name=city_name)
 
+    countries = Countries.objects.all()
+
+    city_info=Cities.objects.get(city_name=city_name)
 
     city_id=city_info.city_ID
     locations_info=Locations.objects.filter(city_ID=city_id)
 
-    context = {'city_info': city_info,'locations_info':locations_info}
+
+    # from session
+    user_id = 1
+    user_instance = User.objects.get(user_id=user_id)
+    user_name =user_instance.username
+    city_instance = Cities.objects.get(city_ID=city_id)
+    date = datetime.datetime.now()
+
+    #Experience Form
+    experienceForm = ExperienceForm(request.POST or None)
+    if experienceForm.is_valid():
+
+        description =experienceForm.cleaned_data['Leave_your_Experience']
+
+        experience_data=Experience(user_ID=user_instance,city_ID=city_instance,date=date,description=description)
+
+        experience_data.save()
+
+        # return redirect('/Countries/Egypt/al-Iskandariyah/')
+
+    allExperience=Experience.objects.filter(city_ID=city_id)
+    experience_count=Experience.objects.filter(city_ID=city_id).count()
+
+
+    allComments=Comments.objects.all()
+    comment_count=Comments.objects.all().count()
+
+
+    context = {'all_countries':countries,'city_info': city_info,'locations_info':locations_info,
+               'ExperienceForm':experienceForm,'allExperience':allExperience,'experience_count':experience_count,'user_name':user_name,
+               'allComments':allComments,'comment_count':comment_count}
 
     return render(request,'city.html',context)
+
+
+def addComment(request,exper_ID):
+    countries = Countries.objects.all()
+
+    #from sesstion
+    user_id=1
+    user_instance=User.objects.get(user_id=user_id)
+    experience_instance = Experience.objects.get(exper_ID=exper_ID)
+    date = datetime.datetime.now()
+    #Comment Form
+    commentForm=CommentForm(request.POST or None)
+    if commentForm.is_valid():
+
+        description=commentForm.cleaned_data['reply']
+
+        comment_data=Comments(user_ID=user_instance,date=date,exper_ID=experience_instance,description=description)
+
+        comment_data.save()
+        # context={'exper_ID':exper_ID}
+        # return render(request, 'city.html', context)
+
+
+    context={'all_countries':countries,'commentForm':commentForm}
+
+    return render(request,'comment.html',context)

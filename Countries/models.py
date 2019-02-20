@@ -42,7 +42,7 @@ class Experience(models.Model):
     city_ID = models.ForeignKey(Cities)
     date=models.DateTimeField()
     description = models.TextField()
-    def __str__(self):
+    def __int__(self):
         return self.exper_ID
 
 
@@ -52,5 +52,5 @@ class Comments(models.Model):
     exper_ID = models.ForeignKey(Experience)
     date = models.DateTimeField()
     description = models.TextField()
-    def __str__(self):
+    def __int__(self):
         return self.comment_ID
