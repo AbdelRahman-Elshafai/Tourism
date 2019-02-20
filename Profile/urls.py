@@ -19,7 +19,7 @@ from django.contrib.auth.views import login
 
 urlpatterns = [
         url(r'^[A-Za-z / A-Za-z]+/signup/$', views.signupUser , name='signup'),  ### visitor moved from home to register
-        url(r'^[A-Za-z / A-Za-z]+/signin/$', login , {'template_name' : 'LogIn.html'}),
+        url(r'^[A-Za-z / A-Za-z]+/signin/$', login , {'template_name' : 'login.html'}),
         # url(r'^home$', views.temphome),
 ]
 

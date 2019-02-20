@@ -16,9 +16,9 @@
                     {{ field }}<br>
                   </p>
                 {% endfor %}
-                    {% for message in messages %}
+                    {% for  error in form.non_field_errors %}
                     <div class="alert alert-success">
-                        <small style="color: red">{{ message }}</small>
+                        <small style="color: red">{{ error }}</small>
                     </div>
                     {% endfor %}
             <section>

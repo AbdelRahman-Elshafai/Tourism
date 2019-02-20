@@ -22,7 +22,7 @@ def signupUser(request):
             password = request.POST['password1']
             user = authenticate( username = username , password = password )
             login(request,user)
-            return render(request, 'myAccount.html',{'user':user}) #..................go to user profile
+            return redirect('/Tourism/home')            #..................go to user profile
     else:
         form = SignUpForm()
 
