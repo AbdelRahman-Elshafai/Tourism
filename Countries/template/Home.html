@@ -45,8 +45,9 @@
     <hr />
 
 
-
-
+    {% if user.is_authenticated %}
+        <p> Welcome {{ user.username }} !!!</p>
+    {% endif %}
 <!--country-->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000">
     <ol class=" carousel-indicators">
