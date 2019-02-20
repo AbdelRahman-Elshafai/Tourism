@@ -2,7 +2,7 @@ from django import forms
 
 from Countries.models import Countries , Comments , Cities , Locations , Experience
 
-from Profile.models import UserProfile
+from Profile.models import Users
 
 from hotel.models import Hotel
 
@@ -38,7 +38,7 @@ class LocationsForm(forms.ModelForm):
 
 class UserForm(forms.ModelForm):
     class Meta:
-        model = UserProfile
+        model = Users
         fields = "__all__"
         # fields = ('username' , 'first_name' , 'last_name' , 'user_password' , 'user_email' , 'blk_flg')
 

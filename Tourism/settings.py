@@ -29,6 +29,8 @@ ALLOWED_HOSTS = ['*']
 
 LOGIN_REDIRECT_URL = '/Tourism/home'
 LOGOUT_REDIRECT_URL = '/Tourism/home'
+AUTH_USER_MODEL = "Profile.Users"
+
 
 
 # Application definition
@@ -116,7 +118,6 @@ AUTHENTICATION_BACKENDS = (
         'django.contrib.auth.backends.ModelBackend',
     )
 
-AUTH_USER_MODEL = "Profile.UserProfile"
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/

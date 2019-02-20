@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from Countries.models import Cities, Locations
-from Profile.models import UserProfile
+from Profile.models import Users
 from hotel.models import Hotel , HotelReservationRequest
 from .forms import ReserveForm
 from django.http import HttpResponseRedirect
@@ -45,7 +45,7 @@ def reservation(request , city_name):
         hotel_instance = Hotel.objects.get(hotel_id=eval(hotel_id))
 
         # create instance of the user cuz it's a foreign key by using his id
-        user_instance = UserProfile.objects.get(id=user_id)
+        user_instance = Users.objects.get(id=user_id)
 
         # using the instance make the row and use date() to get the date only not the time
         reservation = HotelReservationRequest(from_date=from_date.date() , to_date = to_date.date(), no_of_adults=no_adults,hotel_id=hotel_instance , user_id=user_instance )
