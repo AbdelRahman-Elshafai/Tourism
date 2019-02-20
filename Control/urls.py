@@ -28,23 +28,28 @@ urlpatterns = [
     url(r'^panel/Countries$', views.display_countries),
     url(r'^panel/Locations$', views.display_locations),
     url(r'^panel/Users$', views.display_users),
+    url(r'^panel/Hotels$', views.display_hotels),
 
 
     url(r'^panel/CitiesForm$', views.create_cities),
     url(r'^panel/CountriesForm$', views.create_countries),
     url(r'^panel/LocationsForm$', views.create_locations),
     url(r'^panel/UsersForm$', views.create_users),
-
+    url(r'^panel/HotelsForm$', views.create_hotels),
 
     url(r'^panel/Countries/edit/(?P<country_name>[-\w\s]+)/$', views.edit_countries),
     url(r'^panel/Cities/edit/(?P<city_name>[-\w\s]+)/$', views.edit_cities),
     url(r'^panel/Locations/edit/(?P<location_name>[-\w\s]+)/$', views.edit_locations),
+    url(r'^panel/Hotels/edit/(?P<hotel_name>[-\w\s]+)/$', views.edit_hotels),
+
     # url(r'^panel/Users/edit/(?P<user_name>[-\w|\W]+)/$', views.edit_users),
 
 
     url(r'^panel/Countries/delete/(?P<country_ID>[0-9]+)/$', views.delete_countries),
     url(r'^panel/Cities/delete/(?P<city_ID>[0-9]+)/$', views.delete_cities),
     url(r'^panel/Locations/delete/(?P<location_ID>[0-9]+)/$', views.delete_locations),
+    url(r'^panel/Hotels/delete/(?P<hotel_id>[0-9]+)/$', views.delete_hotels),
+
     # url(r'^panel/Users/delete/(?P<user_name>[-\w|\W]+)/$', views.edit_users),
 
 ]
