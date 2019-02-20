@@ -34,16 +34,6 @@ class LocationsForm(forms.ModelForm):
         fields = ('location_name' , 'city_ID' , 'latitude' , 'longitude' , 'description')
 
 
-class ExperienceForm(forms.ModelForm):
-    class Meta:
-        model = Experience
-        fields = ('user_ID' , 'city_ID', 'date', 'description')
-
-
-class CommentsForm(forms.ModelForm):
-    class Meta:
-        model = Comments
-        fields = ('user_ID' , 'exper_ID' , 'date' , 'description')
 
 
 class UserForm(forms.ModelForm):
@@ -53,7 +43,3 @@ class UserForm(forms.ModelForm):
 
 
 
-# class ReservationForm(forms.ModelForm):
-#     class Meta:
-#         model = Car_Reservation
-#         fields = ('rental_id' , 'user_id')
