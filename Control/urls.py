@@ -21,46 +21,32 @@ from django.contrib.auth import urls
 from Control import views
 
 urlpatterns = [
-    url(r'^panel/$', views.display_dash_board),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/$', views.display_dash_board , name='home'),
+
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/Cities$', views.display_cities),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/Countries$', views.display_countries),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/Locations$', views.display_locations),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/Users$', views.display_users),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/Hotels$', views.display_hotels),
 
 
-    # url(r'^panel/CarRental$', views.display_car_rental),
-    # url(r'^panel/CarReservation$', views.display_car_reservation),
-    url(r'^panel/Cities$', views.display_cities),
-    url(r'^panel/Comments$', views.display_comments),
-    url(r'^panel/Countries$', views.display_countries),
-    url(r'^panel/Experience$', views.display_experience),
-    url(r'^panel/Locations$', views.display_locations),
-    url(r'^panel/Users$', views.display_users),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/CitiesForm$', views.create_cities),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/CountriesForm$', views.create_countries),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/LocationsForm$', views.create_locations),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/UsersForm$', views.create_users),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/HotelsForm$', views.create_hotels),
+
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/Countries/edit/(?P<country_name>[-\w\s]+)/$', views.edit_countries),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/Cities/edit/(?P<city_name>[-\w\s]+)/$', views.edit_cities),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/Locations/edit/(?P<location_name>[-\w\s]+)/$', views.edit_locations),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/Hotels/edit/(?P<hotel_name>[-\w\s]+)/$', views.edit_hotels),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/Users/edit/(?P<username>[-\w|\W]+)/$', views.edit_users),
 
 
-    # url(r'^panel/ReservationForm$', views.create_car_reservation),
-    url(r'^panel/CitiesForm$', views.create_cities),
-    url(r'^panel/CommentsForm$', views.create_comments),
-    url(r'^panel/CountriesForm$', views.create_countries),
-    url(r'^panel/ExperienceForm$', views.create_experience),
-    url(r'^panel/LocationsForm$', views.create_locations),
-    url(r'^panel/UsersForm$', views.create_users),
-    # url(r'^panel/RentalForm$', views.create_car_rental),
-
-
-    url(r'^panel/Countries/edit/(?P<country_name>[-\w\s]+)/$', views.edit_countries),
-    # url(r'^panel/CarRental/edit/(?P<country_name>[-\w|\W]+)/$', views.edit_car_rental),
-    # url(r'^panel/CarReservation/edit/(?P<country_name>[-\w|\W]+)/$', views.edit_car_reservation),
-    url(r'^panel/Cities/edit/(?P<city_name>[-\w\s]+)/$', views.edit_cities),
-    # url(r'^panel/Comments/edit/(?P<comment_ID>[-\w|\W]+)/$', views.edit_comments),
-    # url(r'^panel/Experience/edit/(?P<country_name>[-\w|\W]+)/$', views.edit_experience),
-    url(r'^panel/Locations/edit/(?P<location_name>[-\w\s]+)/$', views.edit_locations),
-    # url(r'^panel/Users/edit/(?P<user_name>[-\w|\W]+)/$', views.edit_users),
-
-
-    url(r'^panel/Countries/delete/(?P<country_ID>[0-9]+)/$', views.delete_countries),
-    # url(r'^panel/CarRental/delete/(?P<country_name>[-\w|\W]+)/$', views.edit_car_rental),
-    # url(r'^panel/CarReservation/delete/(?P<country_name>[-\w|\W]+)/$', views.edit_car_reservation),
-    url(r'^panel/Cities/delete/(?P<city_ID>[0-9]+)/$', views.delete_cities),
-    # url(r'^panel/Comments/delete/(?P<comment_ID>[-\w|\W]+)/$', views.edit_comments),
-    # url(r'^panel/Experience/delete/(?P<country_name>[-\w|\W]+)/$', views.edit_experience),
-    url(r'^panel/Locations/delete/(?P<location_ID>[0-9]+)/$', views.delete_locations),
-    # url(r'^panel/Users/delete/(?P<user_name>[-\w|\W]+)/$', views.edit_users),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/Countries/delete/(?P<country_ID>[0-9]+)/$', views.delete_countries),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/Cities/delete/(?P<city_ID>[0-9]+)/$', views.delete_cities),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/Locations/delete/(?P<location_ID>[0-9]+)/$', views.delete_locations),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/Hotels/delete/(?P<hotel_id>[0-9]+)/$', views.delete_hotels),
+    url(r'^[A-Za-z\- / A-Za-z\-]+/panel/Users/delete/(?P<id>[-\w|\W]+)/$', views.delete_users),
 
 ]

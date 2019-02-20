@@ -38,25 +38,15 @@
         {{cities_form.as_p}}
     {% endif %}
 
-    {% if comments_form %}
-        {{comments_form.as_p}}
-    {% endif %}
-
-    {% if experience_form %}
-        {{experience_form.as_p}}
-    {% endif %}
-
     {% if locations_form %}
         {{locations_form.as_p}}
     {% endif %}
 
-    {% if rental_form %}
-        {{ rental_form.as_p }}
+        {% if hotel_form %}
+        {{hotel_form.as_p}}
     {% endif %}
 
-    {% if reservation_form %}
-        {{reservation_form.as_p}}
-    {% endif %}
+
 
     {% if users_form %}
         {{users_form.as_p}}

@@ -2,7 +2,7 @@ from django.shortcuts import render , redirect
 
 from .models import Countries , Cities , Locations , Experience , Comments
 from .forms import ExperienceForm ,CommentForm
-from Profile.models import User
+from Profile.models import Users
 from django.http import HttpResponse , HttpResponseRedirect
 import datetime
 
@@ -69,6 +69,7 @@ def showCountry(request,country_name):
 
 def showCity(request,city_name,country_name='country'):
 
+
     countries = Countries.objects.all()
 
     city_info=Cities.objects.get(city_name=city_name)
@@ -77,9 +78,11 @@ def showCity(request,city_name,country_name='country'):
     locations_info=Locations.objects.filter(city_ID=city_id)
 
 
+    context = {'city_info': city_info,'locations_info':locations_info , 'all_countries': countries}
+
     # from session
     user_id = 1
-    user_instance = User.objects.get(user_id=user_id)
+    user_instance = Users.objects.get(user_id=user_id)
     user_name =user_instance.username
     city_instance = Cities.objects.get(city_ID=city_id)
     date = datetime.datetime.now()
@@ -116,7 +119,7 @@ def addComment(request,exper_ID):
 
     #from sesstion
     user_id=1
-    user_instance=User.objects.get(user_id=user_id)
+    user_instance=Users.objects.get(user_id=user_id)
     experience_instance = Experience.objects.get(exper_ID=exper_ID)
     date = datetime.datetime.now()
     #Comment Form

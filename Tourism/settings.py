@@ -26,11 +26,17 @@ SECRET_KEY = 'hw%jo35apvljd9!i^ilq5p093r#v@zi1__yeycb-3hhr%i_ecj'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-LOGIN_REDIRECT_URL = '/'
+
+LOGIN_REDIRECT_URL = '/Tourism/home'
+LOGOUT_REDIRECT_URL = '/Tourism/home'
+AUTH_USER_MODEL = "Profile.Users"
+
+
 
 # Application definition
 
 INSTALLED_APPS = [
+    'hotel',
     'Car_Rental',
     'Profile',
     'Control',
@@ -107,6 +113,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#Authentication backends
+AUTHENTICATION_BACKENDS = (
+        'django.contrib.auth.backends.ModelBackend',
+    )
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -125,5 +136,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = os.path.join(BASE_DIR,'/Car_Rental/static/')
+#STATIC_URL = os.path.join(BASE_DIR,'/Car_Rental/static/')
+STATIC_URL = os.path.join(BASE_DIR,'/Profile/static/')
 

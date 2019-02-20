@@ -19,9 +19,11 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^Control/', include('Control.urls')),
-    url(r'^Countries/', include('Countries.urls')),
-    url(r'^Profile/', include('Profile.urls')),
-    url(r'^Car_Rental/', include('Car_Rental.urls')),
+    url(r'^Tourism/', include('django.contrib.auth.urls')),
+    url(r'^Tourism/', include('Profile.urls')),
+    url(r'^Tourism/', include('Control.urls')),
+    url(r'^Tourism/', include('Countries.urls')),
+    url(r'^Tourism/', include('hotel.urls')),
+    url(r'^Tourism/', include('Car_Rental.urls')),
 
 ]
