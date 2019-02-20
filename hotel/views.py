@@ -20,6 +20,13 @@ from django.http import HttpResponseRedirect
 
 def reservation(request , city_name):
 
+    user = request.user
+    if user.is_authenticated():
+
+        if user.blk_flg == True:
+
+            return render(request, 'BlkMsg.html')
+
     form = ReserveForm(request.POST or None)
 
 

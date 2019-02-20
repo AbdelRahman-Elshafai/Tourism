@@ -5,6 +5,8 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 
+from django.contrib.auth.decorators import login_required
+
 
 
 def addUser(request):
@@ -44,10 +46,13 @@ def addUser(request):
 
 
 
-
 def viewAccount(request):
     user = request.user
     context = {'user': user }
+    if user.blk_flg == True:
+
+        return render(request, 'BlkMsg.html')
+
     return render(request, 'myAccount.html', context)
 
 

@@ -32,6 +32,16 @@ from Countries.models import Locations , Cities
 
 def rent(request , city_name):
 
+    user = request.user
+
+    #if the user exists
+
+    if user.is_authenticated():
+
+        # see if he is blocked and lock him out
+        if user.blk_flg == True:
+
+            return render(request, 'BlkMsg.html')
 
     form = RentalForm(request.POST or None)
 
