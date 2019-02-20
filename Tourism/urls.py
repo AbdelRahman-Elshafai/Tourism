@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^Control/', include('Control.urls')),
     url(r'^Countries/', include('Countries.urls')),
     url(r'^Profile/', include('Profile.urls')),
+    url(r'^hotel/', include('hotel.urls')),
     url(r'^Car_Rental/', include('Car_Rental.urls')),
 
 ]

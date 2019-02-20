@@ -33,6 +33,7 @@ LOGOUT_REDIRECT_URL = '/'
 # Application definition
 
 INSTALLED_APPS = [
+    'hotel',
     'Car_Rental',
     'Profile',
     'Control',

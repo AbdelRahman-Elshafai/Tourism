@@ -22,6 +22,7 @@ from Countries import views
 
 urlpatterns = [
     url(r'^home/$', views.displayHome),
-    url(r'^(?P<country_name>[A-Za-z , A-Za-z]+)$' , views.showCountry , name='country'),
-
+    url(r'^(?P<country_name>[A-Za-z , A-Za-z]+)/$' , views.showCountry , name='country'),
+    #url(r'^home/city/(?P<city_name>[A-Za-z-A-Za-z]+)/$', views.showCity, name='city'),
+    url(r'^(?P<country_name>[A-Za-z , A-Za-z]+)/(?P<city_name>[A-Za-z \- A-Za-z]+)/$', views.showCity, name='city'),
 ]

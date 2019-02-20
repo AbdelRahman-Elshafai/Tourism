@@ -4,6 +4,8 @@ from Countries.models import Countries , Comments , Cities , Locations , Experie
 
 from Profile.models import UserProfile
 
+from hotel.models import Hotel
+
 from Car_Rental.models import  Car_Reservation
 
 from .models import Admin
@@ -34,18 +36,6 @@ class LocationsForm(forms.ModelForm):
         fields = ('location_name' , 'city_ID' , 'latitude' , 'longitude' , 'description')
 
 
-class ExperienceForm(forms.ModelForm):
-    class Meta:
-        model = Experience
-        fields = ('user_ID' , 'city_ID', 'date', 'description')
-
-
-class CommentsForm(forms.ModelForm):
-    class Meta:
-        model = Comments
-        fields = ('user_ID' , 'exper_ID' , 'date' , 'description')
-
-
 class UserForm(forms.ModelForm):
     class Meta:
         model = UserProfile
@@ -53,8 +43,10 @@ class UserForm(forms.ModelForm):
         # fields = ('username' , 'first_name' , 'last_name' , 'user_password' , 'user_email' , 'blk_flg')
 
 
+class HotelForm(forms.ModelForm):
+    class Meta:
+        model = Hotel
+        fields = ('hotel_name' , 'hotel_id' , 'city_id')
 
-# class ReservationForm(forms.ModelForm):
-#     class Meta:
-#         model = Car_Reservation
-#         fields = ('rental_id' , 'user_id')
+
+

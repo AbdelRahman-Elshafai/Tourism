@@ -1,0 +1,12 @@
+{% for item in all %}
+<tr>
+    <td>{{item.hotel_name}}</td>
+    <td>{{item.hotel_id}}</td>
+    <td>
+        <a href="Hotels/edit/{{item.hotel_name}}" class="btn btn-info" role="button">Edit</a>
+    </td>
+    <td>
+        <a href="Hotels/delete/{{item.hotel_id}}" class="btn btn-info" role="button">Delete</a>
+    </td>
+</tr>
+{% endfor %}

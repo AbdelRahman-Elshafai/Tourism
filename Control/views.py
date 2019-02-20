@@ -4,13 +4,15 @@ from django.http import HttpResponse , HttpResponseRedirect
 
 from .models import Admin
 
-from .forms import CountriesForm , CitiesForm , CommentsForm , ExperienceForm , LocationsForm , UserForm
+from .forms import CountriesForm, CitiesForm, LocationsForm, UserForm, HotelForm
 
 from Countries.models import Countries, Cities , Comments , Experience , Locations
 
 from Car_Rental.models import  Car_Reservation
 
 from Profile.models import UserProfile
+
+from hotel.models import Hotel , HotelReservationRequest
 
 # Create your views here.
 
@@ -19,35 +21,6 @@ def display_dash_board(request):
 
     return render(request , 'home.html')
 
-
-# def display_car_rental(request):
-#
-#     rental = Car_Rental.objects.all()
-#
-#     # get all the field names of the model
-#
-#     field_names = [field.name for field in Car_Rental._meta.get_fields()][1:]
-#
-#
-#     context = {"name": "Car Rental", "all": rental, "field_names": field_names}
-#
-#
-#     return render(request , 'table.html' , context)
-
-
-# def display_car_reservation(request):
-#
-#     reservation = Car_Reservation.objects.all()
-#
-#     # get all the field names of the model
-#
-#     field_names = [field.name for field in Car_Reservation._meta.get_fields()][1:]
-#
-#
-#     context = {"name": "Car Reservation", "all": reservation, "field_names": field_names}
-#
-#
-#     return render(request , 'table.html' , context)
 
 def display_cities(request):
 
@@ -62,19 +35,7 @@ def display_cities(request):
 
     return render(request , 'table.html' , context)
 
-def display_comments(request):
 
-    comments = Comments.objects.all()
-
-    # get all the field names of the model
-
-    field_names = [field.name for field in Comments._meta.get_fields()][1:]
-
-
-    context = {"name": "Comments", "all": comments, "field_names": field_names}
-
-
-    return render(request , 'table.html' , context)
 
 def display_countries(request):
 
@@ -90,19 +51,6 @@ def display_countries(request):
 
     return render(request , 'table.html' , context)
 
-def display_experience(request):
-
-    experience = Experience.objects.all()
-
-    # get all the field names of the model
-
-    field_names = [field.name for field in Experience._meta.get_fields()][1:]
-
-
-    context = {"name": "Experience", "all": experience, "field_names": field_names}
-
-
-    return render(request , 'table.html' , context)
 
 def display_locations(request):
 
@@ -124,7 +72,7 @@ def display_users(request):
 
     # get all the field names of the model
 
-    field_names = [field.name for field in User._meta.get_fields()][1:]
+    field_names = [field.name for field in User._meta.get_fields()][4:]
 
 
     context = {"name": "Users", "all": users, "field_names": field_names}
@@ -133,15 +81,24 @@ def display_users(request):
     return render(request , 'table.html' , context)
 
 
+def display_hotels(request):
 
-# def create_car_reservation(request):
-#
-#     form = ReservationForm(request.POST or None)
-#     if form.is_valid():
-#         form.save()
-#         return HttpResponseRedirect("/Control/panel")
-#     else:
-#         return render(request , 'form.html' , {"reservation_form" : form})
+    hotels = Hotel.objects.all()
+
+    # get all the field names of the model
+
+    field_names = [field.name for field in Hotel._meta.get_fields()][2:]
+
+    context = {"name": "Hotels", "all": hotels, "field_names": field_names}
+
+
+    return render(request , 'table.html' , context)
+
+
+
+
+
+
 
 def create_cities(request):
 
@@ -152,14 +109,7 @@ def create_cities(request):
     else:
         return render(request , 'form.html' , {"cities_form" : form})
 
-def create_comments(request):
 
-    form = CommentsForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect("/Control/panel")
-    else:
-        return render(request , 'form.html' , {"comments_form" : form})
 
 def create_countries(request):
 
@@ -171,14 +121,6 @@ def create_countries(request):
         return render(request , 'form.html' , {"countries_form" : form})
 
 
-def create_experience(request):
-
-    form = ExperienceForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect("/Control/panel")
-    else:
-        return render(request , 'form.html' , {"experience_form" : form})
 
 def create_locations(request):
 
@@ -198,14 +140,14 @@ def create_users(request):
     else:
         return render(request , 'form.html' , {"users_form" : form})
 
-# def create_car_rental(request):
-#
-#     form = RentalForm(request.POST or None)
-#     if form.is_valid():
-#         form.save()
-#         return HttpResponseRedirect("/Control/panel")
-#     else:
-#         return render(request , 'form.html' , {"rental_form" : form})
+def create_hotels(request):
+
+    form = HotelForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/Control/panel")
+    else:
+        return render(request , 'form.html' , {"hotel_form" : form})
 
 
 
@@ -223,15 +165,6 @@ def edit_countries(request , country_name):
 
 
 
-#
-# def edit_car_rental(request , car_rental_name):
-#     pass
-#
-#
-#
-# def edit_car_reservation(request , car_rental_name):
-#     pass
-
 
 
 def edit_cities(request , city_name):
@@ -243,12 +176,7 @@ def edit_cities(request , city_name):
     else:
         return render(request , 'form.html' , {"cities_form" : form})
 
-# def edit_comments(request , comment_id):
-#     pass
-#
-# def edit_experience(request , exper_id):
-#     pass
-#
+
 
 def edit_locations(request , location_name):
 
@@ -262,8 +190,17 @@ def edit_locations(request , location_name):
         return render(request , 'form.html' , {"locations_form" : form})
 
 
-# def edit_users(request , user_name):
-#     pass
+
+def edit_hotels(request , hotel_name):
+
+    hotels = Hotel.objects.get(hotel_name = hotel_name)
+
+    form = HotelForm(request.POST or None , instance=hotels)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/Control/panel")
+    else:
+        return render(request , 'form.html' , {"hotel_form" : form})
 
 
 
@@ -294,6 +231,17 @@ def delete_locations(request , location_ID):
     location = Locations.objects.get(location_ID = eval(location_ID))
 
     location.delete()
+
+
+    return HttpResponseRedirect("/Control/panel")
+
+
+
+def delete_hotels(request , hotel_id):
+
+    hotel = Hotel.objects.get(hotel_id = eval(hotel_id))
+
+    hotel.delete()
 
 
     return HttpResponseRedirect("/Control/panel")
