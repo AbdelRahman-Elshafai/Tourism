@@ -40,7 +40,7 @@ def rent(request , city_name):
     if form.is_valid():
 
         #user id will be in session
-        user_id = 1
+        user_id = request.user.id
 
         # get location id from value selected
         location_id = form.cleaned_data['location']

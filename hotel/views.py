@@ -26,7 +26,7 @@ def reservation(request , city_name):
     if form.is_valid():
 
         #user id will be in session
-        user_id = 1
+        user_id = request.user.id
 
         # get Hotel id from value selected
         hotel_id = form.cleaned_data['hotels']
