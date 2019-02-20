@@ -30,7 +30,7 @@ from Countries.models import Locations , Cities
 
 
 
-def rent(request):
+def rent(request , city_name):
 
 
     form = RentalForm(request.POST or None)
@@ -55,7 +55,7 @@ def rent(request):
         location_instance = Locations.objects.get(location_ID=eval(location_id))
 
         # create instance of the user cuz it's a foreign key by using his id
-        user_instance = UserProfile.objects.get(user_id=user_id)
+        user_instance = UserProfile.objects.get(id=user_id)
 
         # using the instance make the row and use date() to get the date only not the time
         reservation = Car_Reservation(location_ID=location_instance , user_id=user_instance , pick_up=pick.date() , drop_off=drop.date())
@@ -63,11 +63,11 @@ def rent(request):
         # insert into database
         reservation.save()
 
-        return HttpResponseRedirect("/Car_Rental/rent")
+        return HttpResponseRedirect("/Tourism/home")
     else:
         # get the id of the city
 
-        city_id = Cities.objects.only('city_ID').get(city_name='al-Iskandariyah').city_ID
+        city_id = Cities.objects.only('city_ID').get(city_name=city_name).city_ID
 
         # get all the locations names and id's related to that city
 
