@@ -1,5 +1,6 @@
 from django.db import models
-from Profile.models import User
+from Profile.models import Users
+from django.conf import settings
 
 # Create your models here.
 class Countries(models.Model):
@@ -38,7 +39,7 @@ class Locations(models.Model):
 
 class Experience(models.Model):
     exper_ID = models.AutoField(primary_key=True)
-    user_ID = models.ForeignKey(User)
+    user_ID = models.ForeignKey(settings.AUTH_USER_MODEL)
     city_ID = models.ForeignKey(Cities)
     date=models.DateTimeField()
     description = models.TextField()
@@ -48,7 +49,7 @@ class Experience(models.Model):
 
 class Comments(models.Model):
     comment_ID = models.AutoField(primary_key=True)
-    user_ID = models.ForeignKey(User)
+    user_ID = models.ForeignKey(settings.AUTH_USER_MODEL)
     exper_ID = models.ForeignKey(Experience)
     date = models.DateTimeField()
     description = models.TextField()

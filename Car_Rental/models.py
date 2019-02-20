@@ -6,8 +6,10 @@
 
 from django.db        import models
 
-from Profile.models   import User
+from Profile.models   import Users
 from Countries.models import Locations
+
+from django.conf import settings
 
 # Create your models here.
 #class representing table for car rentals services
@@ -26,7 +28,7 @@ class Car_Reservation(models.Model):
 
     reservation_id = models.AutoField(primary_key=True )
     location_ID = models.ForeignKey(Locations , null=True)
-    user_id = models.ForeignKey(User)
+    user_id = models.ForeignKey(settings.AUTH_USER_MODEL)
     pick_up = models.CharField(max_length = 200 , null=True)
     drop_off = models.CharField(max_length = 200 , null=True)
     def __str__(self):

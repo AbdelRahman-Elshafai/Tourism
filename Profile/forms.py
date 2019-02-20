@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
+from django.conf import settings
+
 
 def validate_pass(value):
     if not any(char.isdigit() for char in value):
@@ -28,12 +30,12 @@ def validate_pass(value):
 #         model = User
 #         fields = ('username' , 'first_name', 'last_name', 'user_password' , 'user_email' )
 #
-# class LogInForm(forms.ModelForm):
-#     user_password = forms.CharField(widget=forms.PasswordInput)
-#
-#     class Meta:
-#         model = User
-#         fields = ('username', 'user_password' )
+class LogInForm(forms.ModelForm):
+    user_password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        fields = ('username', 'user_password' )
 
 
 
@@ -50,8 +52,8 @@ class registerForm(UserCreationForm):
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password Again'}))
 
-    class Meta(UserCreationForm.Meta):
-        model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
+    # class Meta(UserCreationForm.Meta):
+    #     model = settings.AUTH_USER_MODEL
+    #     fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
 
 

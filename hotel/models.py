@@ -1,6 +1,7 @@
 from django.db import models
 from Countries.models import Cities
-from Profile.models import User
+from Profile.models import Users
+from django.conf import settings
 # Create your models here.
 
 
@@ -14,8 +15,9 @@ class Hotel(models.Model):
 # table linking user to hotels
 class HotelReservationRequest(models.Model):
     hotel_id = models.ForeignKey(Hotel)
-    user_id = models.ForeignKey(User)
+    user_id = models.ForeignKey(settings.AUTH_USER_MODEL)
     from_date = models.TimeField()
     to_date = models.TimeField()
     no_of_adults = models.IntegerField()
+
 

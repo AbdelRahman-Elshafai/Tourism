@@ -6,7 +6,7 @@ from Car_Rental.forms import RentalForm
 
 from Car_Rental.models import Car_Reservation
 
-from Profile.models import User
+from Profile.models import Users
 
 from Countries.models import Locations , Cities
 
@@ -55,7 +55,7 @@ def rent(request , city_name):
         location_instance = Locations.objects.get(location_ID=eval(location_id))
 
         # create instance of the user cuz it's a foreign key by using his id
-        user_instance = User.objects.get(user_id=user_id)
+        user_instance = Users.objects.get(user_id=user_id)
 
         # using the instance make the row and use date() to get the date only not the time
         reservation = Car_Reservation(location_ID=location_instance , user_id=user_instance , pick_up=pick.date() , drop_off=drop.date())

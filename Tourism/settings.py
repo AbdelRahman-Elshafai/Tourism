@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 LOGIN_REDIRECT_URL = '/Tourism/home/'
+AUTH_USER_MODEL = 'Profile.Users'
 
 # Application definition
 
