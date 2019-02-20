@@ -68,26 +68,83 @@ a:hover {
     top:20px;
 }
 
-.bgImg{
-    position:relative;
-    width:400px;
-    height:auto;
-    bottom:4px;
-    right:4px;
-
-    }
 
 #data{
     position:absolute;
     border-radius: 10px;
     border: 1px solid #ccc;
-    width:890px;
+    width:893px;
     height:auto;
-    left:31%;
+    left:15%;
     bottom:460px;
-    background-color:#eaeaea;
+    background-color: rgb(245, 245, 245,0.7);
 
 }
+
+
+#slider{
+    opacity:0.3;
+    position:absolute;
+    background-color:#195060;
+    border-radius: 5px;
+    border: 1px solid #195060;
+    width:893px;
+    height:32px;
+    bottom:602px;
+    left:15%;
+    }
+
+
+#hotel{
+    position:absolute;
+    background-color:#195060;
+    border-radius: 5px;
+    border: 1px solid #195060;
+    width:210px;
+    height:32px;
+    bottom:602px;
+    left:16%;
+    color:#ffffff;
+    font-weight:10px;
+    }
+#car{
+    position:absolute;
+    background-color:#195060;
+    border-radius: 5px;
+    border: 1px solid #195060;
+    width:210px;
+    height:32px;
+    bottom:602px;
+    left:33%;
+    color:#ffffff;
+    font-weight:10px;
+    }
+#post{
+    position:absolute;
+    background-color:#195060;
+    border-radius: 5px;
+    border: 1px solid #195060;
+    width:210px;
+    height:32px;
+    bottom:602px;
+    left:50%;
+    color:#ffffff;
+    font-weight:10px;
+    }
+
+#comment{
+    position:absolute;
+    background-color:#195060;
+    border-radius: 5px;
+    border: 1px solid #195060;
+    width:210px;
+    height:32px;
+    bottom:602px;
+    left:67%;
+    color:#ffffff;
+    font-weight:10px;
+    }
+
 
 table{
      font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -102,29 +159,3 @@ h2{
     margin-bottom:5px;
 
 }
-
-#slider{
-    opacity:0.3;
-    position:absolute;
-    background-color:#195060;
-    border-radius: 5px;
-    border: 1px solid #195060;
-    width:890px;
-    height:32px;
-    bottom:602px;
-    left:31%;
-    }
-
-
-#hotel,#comment,#post,#car{
-    position:relative;
-    background-color:#195060;
-    border-radius: 5px;
-    border: 1px solid #195060;
-    width:210px;
-    height:32px;
-    bottom:540px;
-    left:32%;
-    color:#ffffff;
-    font-weight:10px;
-    }

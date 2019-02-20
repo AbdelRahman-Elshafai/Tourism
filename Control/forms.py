@@ -2,7 +2,7 @@ from django import forms
 
 from Countries.models import Countries , Comments , Cities , Locations , Experience
 
-from Profile.models import User
+from Profile.models import UserProfile
 
 from Car_Rental.models import  Car_Reservation
 
@@ -48,8 +48,9 @@ class CommentsForm(forms.ModelForm):
 
 class UserForm(forms.ModelForm):
     class Meta:
-        model = User
-        fields = ('username' , 'first_name' , 'last_name' , 'user_password' , 'user_email' , 'blk_flg')
+        model = UserProfile
+        fields = "__all__"
+        # fields = ('username' , 'first_name' , 'last_name' , 'user_password' , 'user_email' , 'blk_flg')
 
 
 

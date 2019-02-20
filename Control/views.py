@@ -10,7 +10,7 @@ from Countries.models import Countries, Cities , Comments , Experience , Locatio
 
 from Car_Rental.models import  Car_Reservation
 
-from Profile.models import User
+from Profile.models import UserProfile
 
 # Create your views here.
 
