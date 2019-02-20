@@ -25,6 +25,6 @@ urlpatterns = [
     url(r'^(?P<country_name>[A-Za-z , A-Za-z]+)/$' , views.showCountry , name='country'),
     #url(r'^home/city/(?P<city_name>[A-Za-z-A-Za-z]+)/$', views.showCity, name='city'),
     url(r'^(?P<country_name>[A-Za-z , A-Za-z]+)/(?P<city_name>[A-Za-z \- A-Za-z]+)/$', views.showCity, name='city'),
-    url(r'^comment/(?P<exper_ID>[0-9]+)/$', views.addComment, name='comment'),
+    url(r'^(?P<country_name>[A-Za-z , A-Za-z]+)/(?P<city_name>[A-Za-z \- A-Za-z]+)/post/(?P<exper_ID>[0-9]+)/$', views.addComment, name='comment'),
     # url(r'^(?P<country_name>[A-Za-z , A-Za-z]+)/(?P<city_name>[A-Za-z \- A-Za-z]+)/comment/(?P<exper_ID>[0-9]+)/$', views.addComment, name='comment'),
 ]

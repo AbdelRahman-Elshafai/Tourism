@@ -173,7 +173,8 @@
                             <li><i class="fa fa-calendar"></i>{{experience.date}}</li>
                         </ul>
                         <ul class="list-unstyled list-inline media-detail pull-right">
-                            <li class=""><a href="{% url 'comment' experience.exper_ID %}">Add Comment</a></li>
+                            <li class=""><a href="{% url 'comment' country_name city_info.city_name experience.exper_ID %}">Add Comment</a></li>
+
                         <!--<li class=""><a href="comment/{{experience.exper_ID}}">Comment</a></li>-->
 
 

@@ -81,8 +81,8 @@ def showCity(request,city_name,country_name='country'):
     context = {'city_info': city_info,'locations_info':locations_info , 'all_countries': countries}
 
     # from session
-    user_id = 1
-    user_instance = Users.objects.get(user_id=user_id)
+    user_id = request.user.id
+    user_instance = Users.objects.get(id=user_id)
     user_name =user_instance.username
     city_instance = Cities.objects.get(city_ID=city_id)
     date = datetime.datetime.now()
@@ -109,19 +109,20 @@ def showCity(request,city_name,country_name='country'):
 
     context = {'all_countries':countries,'city_info': city_info,'locations_info':locations_info,
                'ExperienceForm':experienceForm,'allExperience':allExperience,'experience_count':experience_count,'user_name':user_name,
-               'allComments':allComments,'comment_count':comment_count}
+               'allComments':allComments,'comment_count':comment_count , 'country_name' : country_name}
 
     return render(request,'city.html',context)
 
 
-def addComment(request,exper_ID):
+def addComment(request,country_name , city_name , exper_ID):
     countries = Countries.objects.all()
 
     #from sesstion
-    user_id=1
-    user_instance=Users.objects.get(user_id=user_id)
+    user_id= request.user.id
+    user_instance=Users.objects.get(id=user_id)
     experience_instance = Experience.objects.get(exper_ID=exper_ID)
     date = datetime.datetime.now()
+
     #Comment Form
     commentForm=CommentForm(request.POST or None)
     if commentForm.is_valid():
