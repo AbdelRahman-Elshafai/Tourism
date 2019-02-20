@@ -13,7 +13,7 @@ from Countries.models import Countries
 #
 
 class choice_field(forms.ChoiceField):
-    def valid_value(self , value):
+    def valid_value(self, value):
         return True
 
 

@@ -10,12 +10,14 @@ class Hotel(models.Model):
     hotel_name = models.CharField(max_length=200)
     hotel_id = models.AutoField(primary_key=True)
 
+    def __str__(self):
+        return self.hotel_name
 
 # table linking user to hotels
 class HotelReservationRequest(models.Model):
     hotel_id = models.ForeignKey(Hotel)
     user_id = models.ForeignKey(User)
-    from_date = models.TimeField()
-    to_date = models.TimeField()
+    from_date = models.DateField()
+    to_date = models.DateField()
     no_of_adults = models.IntegerField()
 
