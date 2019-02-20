@@ -8,7 +8,7 @@ class reservationForm(forms.ModelForm):
 
     class Meta:
         model = HotelReservationRequest
-        fields = ('hotel_id', 'from_date', 'to_date', 'no_of_adults',)
+        fields = ('hotel_id', 'user_id', 'from_date', 'to_date', 'no_of_adults',)
 
         def __init__(self, *args, **kwargs):
             super(reservationForm, self).__init__(*args, **kwargs)
