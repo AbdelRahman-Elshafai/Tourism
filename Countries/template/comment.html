@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
 
 
+    <!--comments
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="{% static 'css/comments.css' %}">
+    -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/experience.css' %}">
 
@@ -45,24 +49,210 @@
 
     </style>
 
-    <title>Add Comment</title>
+    <title>Experience</title>
   </head>
   <body>
 
     {% load static %}
 
-         {% include 'navbar.html' %}
+        {% include 'navbar.html' %}
+
+
+
+<hr />
+
+
+
+<div class="d-flex justify-content-center">
+  <h2 class="text-info">{{city_instance.city_name}} </h2>
+</div>
+
+
+
+
+<!--city-->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000">
+
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+        {% with city_instance.city_name|add:'.jpg' as image_static %}
+            <img class="d-block w-100" src="{% static  image_static %}">
+          {% endwith %}
+      </div>
+  </div>
+
+
+      <hr />
+  </div>
+
+<!--end city-->
+
+
+  <div class="d-flex justify-content-center">
+    <h4 class="text-info">Welcome to {{city_instance.city_name}} Experience</h4>
+  </div>
+
+    <br>
+
+
+
+<!--selected post with comments-->
+
+<!--<section class="content-item" id="comments">-->
+    <!--<div class="container">-->
+    	<!--<div class="row">-->
+            <!--<div class="col-sm-8">-->
+                <!--&lt;!&ndash;<form method="post">{% csrf_token%}&ndash;&gt;-->
+                	<!--&lt;!&ndash;&lt;!&ndash;<h3 class="pull-left">New Experience</h3>&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;<br>&ndash;&gt;-->
+                	<!--&lt;!&ndash;&lt;!&ndash;<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Submit</button>&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;<fieldset>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="col-sm-3 col-lg-2 hidden-xs">&ndash;&gt;-->
+                            	<!--&lt;!&ndash;&lt;!&ndash;<img class="img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">&ndash;&gt;&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="form-group col-xs-12 col-sm-9 col-lg-10">&ndash;&gt;-->
+                                <!--&lt;!&ndash;&lt;!&ndash;<textarea class="form-control" id="message" placeholder="Your message" required=""></textarea>&ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;{{ExperienceForm.Leave_your_Experience}}&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</fieldset>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<button type="submit" class="btn btn-outline-success my-2 my-sm-0 pull-right">Submit</button>&ndash;&gt;-->
+                <!--&lt;!&ndash;</form>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<h3>{{experience_count}} Comments</h3>&ndash;&gt;-->
+
+                <!--&lt;!&ndash; COMMENT 1 - START &ndash;&gt;-->
+                <!--&lt;!&ndash;{% for experience in allExperience %}&ndash;&gt;-->
+                <!--<div class="media">-->
+                    <!--<a class="pull-left" href=""><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>-->
+                    <!--<div class="media-body">-->
+                        <!--<h4 class="media-heading">{{post_owner_name}}</h4>-->
+                        <!--<p>{{experience_instance.description}}</p>-->
+                        <!--<ul class="list-unstyled list-inline media-detail pull-left">-->
+                            <!--<li><i class="fa fa-calendar"></i>{{experience_instance.date}}</li>-->
+                        <!--</ul>-->
+                        <!--<ul class="list-unstyled list-inline media-detail pull-right">-->
+                            <!--&lt;!&ndash;<li class=""><a href="{% url 'comment' experience.exper_ID %}">Add Comment</a></li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<li class=""><a href="comment/{{experience.exper_ID}}">Comment</a></li>&ndash;&gt;-->
+
+
+                                <!--<form method="post">{% csrf_token%}-->
+                                    <!--&lt;!&ndash;<h3 class="pull-left">New Experience</h3>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Submit</button>&ndash;&gt;-->
+                                    <!--<fieldset>-->
+                                        <!--<div class="row">-->
+                                            <!--<div class="col-sm-3 col-lg-2 hidden-xs">-->
+                                                <!--&lt;!&ndash;<img class="img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">&ndash;&gt;-->
+                                            <!--</div>-->
+                                            <!--<div class="form-group col-xs-12 col-sm-9 col-lg-10">-->
+                                                <!--&lt;!&ndash;<h6>{{comment_count}} Comments </h6>&ndash;&gt;-->
+                                                <!--{% for comment in allComments %}-->
+
+                                                    <!--&lt;!&ndash;{% if comment.exper_ID_id == experience_instance.exper_ID %}&ndash;&gt;-->
+                                                        <!--<div class="media">-->
+                                                            <!--<a class="pull-left" href=""><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>-->
+                                                            <!--<div class="media-body">-->
+                                                                <!--<h4 class="media-heading">{{user_name}}</h4>-->
+                                                                <!--<p>{{comment.description}}</p>-->
+                                                                <!--<ul class="list-unstyled list-inline media-detail pull-left">-->
+                                                                    <!--<li><i class="fa fa-calendar"></i>{{comment.date}}</li>-->
+                                                                <!--</ul>-->
+                                                            <!--</div>-->
+                                                        <!--</div>-->
+                                                    <!--&lt;!&ndash;{% endif %}&ndash;&gt;-->
+                                                <!--{% endfor %}-->
+                                                <!--{{commentForm.reply}}-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</fieldset>-->
+                                    <!--<button type="submit" class="btn btn-outline-success my-2 my-sm-0 pull-right">Reply</button>-->
+                                <!--</form>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--&lt;!&ndash;{% endfor %}&ndash;&gt;-->
+                <!--&lt;!&ndash; COMMENT 1 - END &ndash;&gt;-->
+
+                <!--<form method="POST">{% csrf_token%}-->
+        <!--{{commentForm.reply}}-->
+
+        <!--<button type="submit" class="btn btn-outline-success my-2 my-sm-0 ">Comment</button>-->
+    <!--</form>-->
+
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</section>-->
+
+
+
 
 
 <section class="content-item" id="comments">
+    <div class="container">
+    	<div class="row">
+            <div class="col-sm-8">
 
-    <form method="POST">{% csrf_token%}
-        {{commentForm.reply}}
+    <div class="media">
+                    <a class="pull-left" href=""><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{post_owner_name}}</h4>
+                        <p>{{experience_instance.description}}</p>
+                        <ul class="list-unstyled list-inline media-detail pull-left">
+                            <li><i class="fa fa-calendar"></i>{{experience_instance.date}}</li>
+                        </ul>
+                        <ul class="list-unstyled list-inline media-detail pull-right">
+                            <!--<li class=""><a href="">Add Comment</a></li>-->
 
-        <button type="submit" class="btn btn-outline-success my-2 my-sm-0 ">Comment</button>
-    </form>
+                        <!--<li class=""><a href="comment/{{experience.exper_ID}}">Comment</a></li>-->
 
+
+                                <!--<form method="post">{% csrf_token%}-->
+                                    <!--&lt;!&ndash;<h3 class="pull-left">New Experience</h3>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Submit</button>&ndash;&gt;-->
+                                    <!--<fieldset>-->
+                                        <!--<div class="row">-->
+                                            <!--<div class="col-sm-3 col-lg-2 hidden-xs">-->
+                                                <!--&lt;!&ndash;<img class="img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">&ndash;&gt;-->
+                                            <!--</div>-->
+                                            <!--<div class="form-group col-xs-12 col-sm-9 col-lg-10">-->
+                                                <!--<h6>{{comment_count}} Comments </h6>-->
+                                                {% for comment in allComments %}
+
+                                                    <!--{% if comment.exper_ID_id == experience.exper_ID %}-->
+                                                        <div class="media">
+                                                            <a class="pull-left" href=""><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
+                                                            <div class="media-body">
+                                                                <h4 class="media-heading">{{user_name}}</h4>
+                                                                <p>{{comment.description}}</p>
+                                                                <ul class="list-unstyled list-inline media-detail pull-left">
+                                                                    <li><i class="fa fa-calendar"></i>{{comment.date}}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    <!--{% endif %}-->
+                                                {% endfor %}
+                                                <!--&lt;!&ndash;{{commentForm.reply}}&ndash;&gt;-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</fieldset>-->
+                                    <!--<button type="submit" class="btn btn-outline-success my-2 my-sm-0 pull-right">Reply</button>-->
+                                <!--</form>-->
+                        </ul>                    </div>
+                </div>
+                <form method="POST">{% csrf_token%}
+                        {{commentForm.reply}}
+
+                        <button type="submit" class="btn btn-outline-success my-2 my-sm-0 ">Comment</button>
+                    </form>
+            </div>
+        </div>
+    </div>
 </section>
+
+
 
 
     <!-- Optional JavaScript -->

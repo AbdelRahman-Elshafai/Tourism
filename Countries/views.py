@@ -143,7 +143,10 @@ def showCity(request,city_name,country_name='country'):
 def addComment(request,country_name , city_name , exper_ID):
     countries = Countries.objects.all()
 
-
+    city_instance = Cities.objects.get(city_name=city_name)
+    experience_instance = Experience.objects.get(exper_ID=exper_ID)
+    post_owner_name=experience_instance.user_ID
+    user_name = "anonymous"
 
     #Comment Form
     commentForm=CommentForm(request.POST or None)
@@ -174,7 +177,10 @@ def addComment(request,country_name , city_name , exper_ID):
             url = '/Tourism/'+ country_name + "/" + city_name + "/"
             return redirect(url)
 
+    allComments = Comments.objects.filter(exper_ID=exper_ID)
 
-    context={'all_countries':countries,'commentForm':commentForm}
+    context = {'all_countries': countries, 'commentForm': commentForm, 'experience_instance': experience_instance,
+               'user_name': user_name, 'city_instance': city_instance, "post_owner_name": post_owner_name,
+               'allComments': allComments}
 
     return render(request,'comment.html',context)
