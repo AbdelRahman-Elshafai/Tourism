@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="{% static 'css/myProfile.css' %}" rel="stylesheet">
+    <script src="{% static 'js/render_histor.js' %}"></script>
 </head>
 <body background="{% static 'profile1.jpg' %}" style="background-repeat: no-repeat; background-size: cover;">
-
+    {% include 'nav.html' %}
     <div id="data">
            <h2 style="text-decoration:underline;">Contact information</h2>
             <table>
@@ -28,17 +29,78 @@
                     </td>
                     <td>{{user.email}}
                     </td>
-                    <td><a href="#">Edit Your Profile ...</a>
+                    <td><a href="/Tourism/home/Profile/edit">Edit Your Profile ...</a>
+                    </td>
+                    <td><a href="/Tourism/home/Profile/editpassword">Edit Your Password ...</a>
                     </td>
                 </tr>
             </table>
         {{user.user_id}}
     </div>
     <div id="slider"></div>
-        <button id="hotel" > Hotel reservations<!--<img class="icons" src="{% static 'hotelicon.png' %}">--></button>
-        <button id="car" > Car Rentals<!--<img class="icons" src="{% static 'caricon.png' %}">--></button>
-        <button id="post" > Posts<!--<img class="icons" src="{% static 'posticon.png' %}">--></button>
-        <button id="comment" > Comments<!--<img class="icons" src="{% static 'commenticon.png' %}">--></button>
-
+        <button id="hotel" onclick="show('hotels-lst')"> Hotel reservations</button>
+        <button id="car"   onclick="show('car')"> Car Rentals</button>
+        <button id="post"  onclick="show('post')"> Posts</button>
+        <button id="comment" onclick="show('comment')"> Comments</button>
+    <div id="hotels-lst" style="display:none;">
+            <table border="2">
+            {% for hotel in hotels %}
+                <tr>
+                    <td>
+                        {{ hotel.hotel_id }}
+                    </td>
+                    <td>
+                        {{ hotel.from_date }}
+                    </td>
+                    <td>
+                        {{ hotel.to_date }}
+                    </td>
+                    <td>
+                        {{ hotel.no_of_adults }}
+                    </td>
+                </tr>
+            {%  endfor  %}
+            </table>
+    </div>
+    <div id="cars-lst" style="display:none;">
+            <table border="2">
+            {% for car in cars %}
+                <tr>
+                    <td>
+                        {{ car.reservation_id }}
+                    </td>
+                    <td>
+                        {{ car.location_ID }}
+                    </td>
+                    <td>
+                        {{ car.pick_up }}
+                    </td>
+                    <td>
+                        {{ car.drop_off }}
+                    </td>
+                </tr>
+            {%  endfor  %}
+            </table>
+    </div>
+    <div id="posts-lst" style="display:none;">
+            <table border="2">
+            {% for car in cars %}
+                <tr>
+                    <td>
+                        {{ car.reservation_id }}
+                    </td>
+                    <td>
+                        {{ car.location_ID }}
+                    </td>
+                    <td>
+                        {{ car.pick_up }}
+                    </td>
+                    <td>
+                        {{ car.drop_off }}
+                    </td>
+                </tr>
+            {%  endfor  %}
+            </table>
+    </div>
 </body>
 </html>

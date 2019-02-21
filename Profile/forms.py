@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from Profile.models import Users
 from django.core.exceptions import ValidationError
@@ -56,3 +56,10 @@ class registerForm(UserCreationForm):
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
 
 
+
+
+
+class EditProfileForm(UserChangeForm):
+    class Meta:
+        model = Users
+        fields = ('email','first_name','last_name' , 'password')

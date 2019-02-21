@@ -8,7 +8,8 @@
 </head>
 <body background="{% static 'bg2.jpg' %}" style="background-repeat: no-repeat; background-size: cover;">
     <div id ="myform">
-        <form method="POST" >{% csrf_token %}
+        <form method="POST" >
+            {% csrf_token %}
             <h1>Login form</h1>
                 {% for field in form %}
                   <p>

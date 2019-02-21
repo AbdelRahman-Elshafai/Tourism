@@ -22,6 +22,8 @@ urlpatterns = [
         url(r'^[A-Za-z\- / A-Za-z\-]+/signin/$', login , {'template_name' : 'login.html'}),
         url(r'^[A-Za-z\- / A-Za-z\-]+/logout/$', logout),
         url(r'^[A-Za-z\- / A-Za-z\-]+/profile/$', views.viewAccount),
+        url(r'^[A-Za-z\- / A-Za-z\-]+/edit/$', views.editAccount),
+        url(r'^[A-Za-z\- / A-Za-z\-]+/editpassword/$', views.changePassword),
 
         # url(r'^home$', views.temphome),
 ]
