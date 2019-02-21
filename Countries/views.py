@@ -81,7 +81,8 @@ def showCity(request,city_name,country_name='country'):
     context = {'city_info': city_info,'locations_info':locations_info , 'all_countries': countries}
 
     # from session
-    user_id = request.user.id
+    user = request.user
+    user_id = user.id
     user_instance = Users.objects.get(id=user_id)
     user_name =user_instance.username
     city_instance = Cities.objects.get(city_ID=city_id)
@@ -91,6 +92,12 @@ def showCity(request,city_name,country_name='country'):
     experienceForm = ExperienceForm(request.POST or None)
     if experienceForm.is_valid():
 
+        if user.is_authenticated():
+
+            # see if he is blocked and lock him out
+            if user.blk_flg == True:
+
+                return render(request, 'BlkMsg.html')
         description =experienceForm.cleaned_data['Leave_your_Experience']
 
         experience_data=Experience(user_ID=user_instance,city_ID=city_instance,date=date,description=description)
@@ -119,7 +126,8 @@ def addComment(request,country_name , city_name , exper_ID):
     countries = Countries.objects.all()
 
     #from sesstion
-    user_id= request.user.id
+    user = request.user
+    user_id= user.id
     user_instance=Users.objects.get(id=user_id)
     experience_instance = Experience.objects.get(exper_ID=exper_ID)
     date = datetime.datetime.now()
@@ -127,6 +135,12 @@ def addComment(request,country_name , city_name , exper_ID):
     #Comment Form
     commentForm=CommentForm(request.POST or None)
     if commentForm.is_valid():
+
+        if user.is_authenticated():
+
+            # see if he is blocked and lock him out
+            if user.blk_flg == True:
+                return render(request, 'BlkMsg.html')
 
         description=commentForm.cleaned_data['reply']
 
