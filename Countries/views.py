@@ -97,7 +97,8 @@ def showCity(request,city_name,country_name='country'):
 
         experience_data.save()
 
-        # return redirect('/Countries/Egypt/al-Iskandariyah/')
+        url = '/Tourism/'+ country_name + "/" + city_name + "/"
+        return redirect(url)
 
     allExperience=Experience.objects.filter(city_ID=city_id)
     experience_count=Experience.objects.filter(city_ID=city_id).count()
@@ -134,6 +135,9 @@ def addComment(request,country_name , city_name , exper_ID):
         comment_data.save()
         # context={'exper_ID':exper_ID}
         # return render(request, 'city.html', context)
+
+        url = '/Tourism/'+ country_name + "/" + city_name + "/"
+        return redirect(url)
 
 
     context={'all_countries':countries,'commentForm':commentForm}
