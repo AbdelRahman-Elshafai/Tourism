@@ -4,14 +4,10 @@ from .models import Users
 
 
 
-# class CustomModel(admin.ModelAdmin):
-#         # fieldsets = (
-#         # ['Users_Tabel' , {'fields': [ 'username' , 'first_name', 'last_name', 'user_password' , 'user_email' , 'blk_flg']}],
-#         # )
-#         # list_display = ('user_id' ,'username' , 'first_name', 'last_name', 'user_password' , 'user_email' , 'blk_flg')
-#
-#
-# # Register your models here.
-# admin.site.register(UserProfile, CustomModel)
+class customUser(admin.ModelAdmin):
+    fieldsets = (
+        ['User_info',{'fields':['password','last_login' , 'is_superuser' , 'username' , 'first_name' , 'last_name' , 'email' , 'is_staff' , 'is_active' , 'date_joined' , 'blk_flg']}],
+    )
 
 
+admin.site.register(Users, customUser)
