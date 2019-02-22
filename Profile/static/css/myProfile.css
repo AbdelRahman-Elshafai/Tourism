@@ -75,8 +75,8 @@ a:hover {
     border: 1px solid #ccc;
     width:893px;
     height:auto;
-    left:15%;
-    bottom:460px;
+    left:20%;
+    top:45px;
     background-color: rgb(245, 245, 245,0.7);
 
 }
@@ -84,14 +84,14 @@ a:hover {
 
 #slider{
     opacity:0.3;
-    position:absolute;
+    position:relative;
     background-color:#195060;
     border-radius: 5px;
     border: 1px solid #195060;
     width:893px;
     height:32px;
-    bottom:602px;
-    left:15%;
+    bottom:20px;
+    left:20%;
     }
 
 
@@ -102,8 +102,8 @@ a:hover {
     border: 1px solid #195060;
     width:210px;
     height:32px;
-    bottom:602px;
-    left:16%;
+    top:9px;
+    left:21%;
     color:#ffffff;
     font-weight:10px;
     }
@@ -114,7 +114,7 @@ a:hover {
     border: 1px solid #195060;
     width:210px;
     height:32px;
-    bottom:602px;
+    top:9px;
     left:33%;
     color:#ffffff;
     font-weight:10px;
@@ -126,8 +126,8 @@ a:hover {
     border: 1px solid #195060;
     width:210px;
     height:32px;
-    bottom:602px;
-    left:50%;
+    top:9px;
+    left:45%;
     color:#ffffff;
     font-weight:10px;
     }
@@ -139,8 +139,8 @@ a:hover {
     border: 1px solid #195060;
     width:210px;
     height:32px;
-    bottom:602px;
-    left:67%;
+    top:9px;
+    left:57%;
     color:#ffffff;
     font-weight:10px;
     }
@@ -162,28 +162,28 @@ h2{
 
 #hotels-lst{
     position: relative;
-    left: 27%;
+    left: 29%;
     top: 250px;
     width: 545px;
 
 }
 #cars-lst{
     position: relative;
-    left: 31%;
+    left: 29%;
     top: 250px;
     width: 545px;
 
 }
 #posts-lst{
     position: relative;
-    left: 34%;
+    left: 29%;
     top: 250px;
     width: 545px;
 
 }
 #comments-lst{
     position: relative;
-    left: 33%;
+    left: 29%;
     top: 250px;
     width: 545px;
 
