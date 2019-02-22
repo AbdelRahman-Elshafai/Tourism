@@ -7,6 +7,7 @@
     <link href="{% static 'css/myProfile.css' %}" rel="stylesheet">
     <script src="{% static 'js/render_histor.js' %}"></script>
 </head>
+
 <body background="{% static 'profile1.jpg' %}" style="background-repeat: no-repeat; background-size: cover;">
     {% include 'nav.html' %}
     <div id="data">
@@ -39,65 +40,77 @@
     </div>
     <div id="slider"></div>
         <button id="hotel" onclick="show('hotels-lst')"> Hotel reservations</button>
-        <button id="car"   onclick="show('car')"> Car Rentals</button>
-        <button id="post"  onclick="show('post')"> Posts</button>
-        <button id="comment" onclick="show('comment')"> Comments</button>
+        <button id="car"   onclick="show('cars-lst')"> Car Rentals</button>
+        <button id="post"  onclick="show('posts-lst')"> Posts</button>
+        <button id="comment" onclick="show('comments-lst')"> Comments</button>
     <div id="hotels-lst" style="display:none;">
-            <table border="2">
+            <table border="2" style="background-color: #f9fefe;">
+                <tr>
+                    <th>Hotel Name</th>
+                    <th>Entry Date</th>
+                    <th>Departure Date</th>
+                    <th>Number of Adults</th>
+                </tr>
             {% for hotel in hotels %}
                 <tr>
-                    <td>
-                        {{ hotel.hotel_id }}
-                    </td>
-                    <td>
-                        {{ hotel.from_date }}
-                    </td>
-                    <td>
-                        {{ hotel.to_date }}
-                    </td>
-                    <td>
-                        {{ hotel.no_of_adults }}
-                    </td>
+                    <td>{{ hotel.hotel_id }}</td>
+                    <td>{{ hotel.from_date }}</td>
+                    <td>{{ hotel.to_date }}</td>
+                    <td>{{ hotel.no_of_adults }}</td>
                 </tr>
             {%  endfor  %}
             </table>
     </div>
     <div id="cars-lst" style="display:none;">
-            <table border="2">
+            <table  border="2" style="background-color: #f9fefe;">
+                 <tr>
+                    <th>Reservation Id</th>
+                    <th>Location</th>
+                    <th>Pickup Date</th>
+                    <th>Drop off Date</th>
+                </tr>
             {% for car in cars %}
                 <tr>
-                    <td>
-                        {{ car.reservation_id }}
-                    </td>
-                    <td>
-                        {{ car.location_ID }}
-                    </td>
-                    <td>
-                        {{ car.pick_up }}
-                    </td>
-                    <td>
-                        {{ car.drop_off }}
-                    </td>
+                    <td>{{ car.reservation_id }}</td>
+                    <td>{{ car.location_ID }}</td>
+                    <td>{{ car.pick_up }}</td>
+                    <td>{{ car.drop_off }}</td>
                 </tr>
             {%  endfor  %}
             </table>
     </div>
     <div id="posts-lst" style="display:none;">
-            <table border="2">
-            {% for car in cars %}
+            <table  border="2" style="background-color: #f9fefe;">
                 <tr>
-                    <td>
-                        {{ car.reservation_id }}
-                    </td>
-                    <td>
-                        {{ car.location_ID }}
-                    </td>
-                    <td>
-                        {{ car.pick_up }}
-                    </td>
-                    <td>
-                        {{ car.drop_off }}
-                    </td>
+                    <th>Experience Id</th>
+                    <th>City Id</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                </tr>
+            {% for post in posts %}
+                <tr>
+                    <td>{{ post.exper_ID }}</td>
+                    <td>{{ post.city_ID }}</td>
+                    <td>{{ post.date }}</td>
+                    <td>{{ post.description }}</td>
+                </tr>
+            {%  endfor  %}
+            </table>
+    </div>
+    <div id="comments-lst" style="display:none;">
+            <table  border="2" style="background-color: #f9fefe;">
+                <tr>
+                    <th>Comment Id</th>
+                    <th>Experience Id</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                </tr>
+            {% for comment in comments %}
+                <tr>
+                    <td>{{ comment.comment_ID }}</td>
+                    <td>{{ comment.exper_ID }}</td>
+                    <td>{{ comment.date }}</td>
+                    <td>{{ comment.description }}</td>
                 </tr>
             {%  endfor  %}
             </table>

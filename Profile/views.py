@@ -73,7 +73,10 @@ def editAccount(request):
 
         if form.is_valid():
             form.save()
-            return redirect('Profile/profile/')
+            return redirect('/Tourism/home/profile')
+        else:
+            return redirect('/Tourism/home/profile/edit')
+
     else:
         form = EditProfileForm(instance=request.user)
         args = {'form': form}
@@ -88,9 +91,9 @@ def changePassword(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            return redirect('Profile/profile/')
+            return redirect('/Tourism/home/profile')
         else:
-            return redirect('Profile/editpassword/')
+            return redirect('/Tourism/home/profile/editpassword')
     else:
         form = PasswordChangeForm(user=request.user)
 

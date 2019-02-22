@@ -159,3 +159,33 @@ h2{
     margin-bottom:5px;
 
 }
+
+#hotels-lst{
+    position: relative;
+    left: 27%;
+    top: 250px;
+    width: 545px;
+
+}
+#cars-lst{
+    position: relative;
+    left: 31%;
+    top: 250px;
+    width: 545px;
+
+}
+#posts-lst{
+    position: relative;
+    left: 34%;
+    top: 250px;
+    width: 545px;
+
+}
+#comments-lst{
+    position: relative;
+    left: 33%;
+    top: 250px;
+    width: 545px;
+
+}
+

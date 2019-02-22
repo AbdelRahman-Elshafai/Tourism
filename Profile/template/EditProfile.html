@@ -12,12 +12,14 @@
             <h1>Edit Profile form</h1>
                 {% for field in form %}
                   <p>
+                      {% if field != form.password%}
                     {{ field.label_tag }}
                     {{ field }}<br>
                     {% for error in field.errors %}
                       <small style="color: red">{{ error }}</small><br>
                     {% endfor %}
                   </p>
+                    {% endif %}
                 {% endfor %}
             <section>
                 <p> <button type="submit">Validate Edit</button> </p>

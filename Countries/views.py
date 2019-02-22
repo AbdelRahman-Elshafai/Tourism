@@ -95,21 +95,25 @@ def showCity(request,city_name,country_name='country'):
 
     context = {'city_info': city_info,'locations_info':locations_info , 'all_countries': countries}
 
-    user_name = "Anonymous"
+    user = request.user
+
+    if user.is_authenticated():
+
+        # from session
+        user_id = user.id
+        user_instance = Users.objects.get(id=user_id)
+        user_name = user_instance.username
+        city_instance = Cities.objects.get(city_ID=city_id)
+        date = datetime.datetime.now()
+    else:
+        user_name = "anonymous"
 
     #Experience Form
     experienceForm = ExperienceForm(request.POST or None)
     if experienceForm.is_valid():
 
-        user = request.user
 
         if user.is_authenticated():
-            # from session
-            user_id = user.id
-            user_instance = Users.objects.get(id=user_id)
-            user_name = user_instance.username
-            city_instance = Cities.objects.get(city_ID=city_id)
-            date = datetime.datetime.now()
 
             # see if he is blocked and lock him out
             if user.blk_flg == True:
@@ -124,6 +128,7 @@ def showCity(request,city_name,country_name='country'):
 
         url = '/Tourism/'+ country_name + "/" + city_name + "/"
         return redirect(url)
+
 
     allExperience=Experience.objects.filter(city_ID=city_id)
     experience_count=Experience.objects.filter(city_ID=city_id).count()
